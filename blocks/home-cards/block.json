@@ -1,0 +1,22 @@
+{
+    "name": "acf/home-cards",
+    "title": "Home cards",
+    "description": "A custom Hero for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Home cards"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "home-cards.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/hero/screenshot.png"
+            }
+        }
+    }
+}

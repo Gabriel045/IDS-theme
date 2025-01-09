@@ -1,0 +1,22 @@
+{
+    "name": "acf/slider",
+    "title": "Slider",
+    "description": "A custom slider for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Slider"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "slider.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/slider/screenshot.png"
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "acf/complete-curricula",
+    "title": "Complete Curricula",
+    "description": "A custom Complete Curricula for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Complete Curricula"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "complete-curricula.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/complete-curricula/screenshot.png"
+            }
+        }
+    }
+}

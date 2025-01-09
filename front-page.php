@@ -4,8 +4,8 @@ get_header();
 
 ?>
 
-<main class=" ">
-   
+<main class="relative">
+    <?php the_content(); ?>
 </main>
 
 <?php
