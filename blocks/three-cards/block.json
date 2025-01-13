@@ -1,0 +1,22 @@
+{
+    "name": "acf/three-cards",
+    "title": "Three Cards",
+    "description": "A custom Three Cards for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Three Cards"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "three-cards.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/three-cards/screenshot.png"
+            }
+        }
+    }
+}

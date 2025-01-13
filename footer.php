@@ -9,7 +9,7 @@
                         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Logo.svg" alt="IDS logo">
                     </a>
                 </figure>
-                <p class="mt-9 mb-1 max-w-[475px] text-GrayText ">
+                <p class="mt-9 mb-2 max-w-[475px] text-GrayText ">
                     Lorem ipsum dolor sit amet consectetur. Lectus et faucibus sagittis non consectetur adipiscing.
                 </p>
                 <p class="flex text-Dark">Follow us on <img class="ml-2"

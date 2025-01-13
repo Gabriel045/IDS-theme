@@ -1,0 +1,22 @@
+{
+    "name": "acf/team",
+    "title": "Team",
+    "description": "A custom Team for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Team"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "team.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/team/screenshot.png"
+            }
+        }
+    }
+}

@@ -15,7 +15,7 @@
     <header class=" py-6 relative overflow-x-clip">
         <div class="block_content">
             <div class="flex flex-row">
-                <div class="w-1/5">
+                <div class="w-3/5 lg:w-1/5">
                     <figure>
                         <a href="/">
                             <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Logo.svg"
@@ -23,23 +23,49 @@
                         </a>
                     </figure>
                 </div>
-                <div id="menu-dektop" class="lg:w-4/5 w-[40%] flex justify-end items-center gap-[25px]">
+                <div id="menu-dektop" class="lg:w-4/5 w-[40%] flex justify-end items-center gap-[12px] xl:gap-[25px]">
                     <?php echo  wp_nav_menu(array(
                         'menu'   => 'Header Menu',
                     ));  ?>
 
                     <div class="">
-                        <span class="inline-block lg:hidden cursor-pointer menu-mobile">
+                        <span class="z-[99] relative nline-block lg:hidden cursor-pointer menu-mobile">
                             <div class="" id="nav-icon4">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
                         </span>
-                        <a href="#" class="btn-orange hidden lg:flex">Contact Us</a>
+                        <a href="#" class="btn-orange !hidden lg:!flex">Contact Us</a>
                     </div>
                 </div>
             </div>
         </div>
-        <span class="blur-circle absolute top-[-10px] right-[-116px]"></span>
+        <!-- mobile -->
+        <div id="menu-mobile" class="menu-mobile-container lg:hidden h-[88vh] overflow-y-auto overflow-x-hidden">
+            <div class="flex flex-col justify-between px-[40px] py-[80px] h-full">
+                <div class="">
+                    <?php echo  wp_nav_menu(array(
+                        'menu'   => 'Header menu',
+                    ));  ?>
+
+                </div>
+                <div class="flex justify-center">
+                    <a href="#" class="btn-orange flex">Contact Us</a>
+                </div>
+            </div>
+            <span class="blur-circle absolute top-[50px] right-[-116px]"></span>
+            <span class="blur-circle absolute bottom-0 left-0"></span>
+        </div>
+        <span class="blur-circle absolute top-[50px] right-[-116px]"></span>
     </header>
+
+    <script>
+        window.addEventListener("load", (event) => {
+            const navIcon = document.querySelector("#nav-icon4")
+            navIcon.addEventListener("click", () => {
+                navIcon.classList.toggle("open");
+                document.querySelector("#menu-mobile").classList.toggle("active");
+            });
+        });
+    </script>

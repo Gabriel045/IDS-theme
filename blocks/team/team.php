@@ -38,40 +38,25 @@ if (!empty($block['align'])) {
 
 // Load values and assign defaults.
 
-$col_1        = get_field('col_1');
-$col_2        = get_field('col_2');
-$image        = get_field('image');
-$content      = get_field('content');
-
+$text        = get_field('text');
+$cards        = get_field('cards');
 ?>
 
 <section class="flex flex-col relative">
     <div class="block_content">
-        <div class="flex gap-[10%] items-end h-auto">
-            <div><?php echo $col_1 ?></div>
-            <div><?php echo $col_2 ?></div>
-        </div>
-    </div>
-</section>
-
-<!--  -->
-<section class="py-[120px] flex flex-col relative">
-    <div class="block_content">
-        <div class="flex gap-[6%]">
-            <div class="w-1/2">
-                <figure class="h-full">
-                    <img decoding="async" class="rounded-[26px] object-cover h-full" src="<?php echo  $image ?>">
-                </figure>
-            </div>
-            <div class="w-1/2 relative flex items-center">
-                <div>
-                    <?php echo $content ?>
+        <div class="flex flex-wrap gap-[1%] gap-y-12 h-auto">
+            <?php foreach ($cards as $card) : ?>
+                <div class="w-full md:w-[49%] lg:w-[32%]">
+                    <figure>
+                        <img src="<?php echo $card['image']; ?>" alt="team">
+                    </figure>
+                    <div class="my-5"><?php echo $card["text"] ?> </div>
+                    <a href="<?php echo $card["link"]["url"] ?>" class="flex  gap-2">
+                        <span class="text-[#0A4489] text-[22px] font-[500]"><?php echo $card["link"]["title"] ?></span>
+                        <img class="w-5" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/vector-arrow.svg">
+                    </a>
                 </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
-    <figure class="absolute top-[80px] right-[-120px] xl:right-[-50px]">
-        <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
-    </figure>
-    <span class="blur-circle absolute  bottom-0 right-[40%]"></span>
 </section>

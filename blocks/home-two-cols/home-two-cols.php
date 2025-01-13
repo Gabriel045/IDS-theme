@@ -77,7 +77,7 @@ $title        = get_field('title');
                         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/arrow-orange.svg">
                     </li>
                 </ul>
-                <figure class="absolute bottom-0 left-[-200px] rotate-[180deg]">
+                <figure class="absolute bottom-[-30px] left-[-200px] rotate-[180deg]">
                     <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
                 </figure>
             </div>
