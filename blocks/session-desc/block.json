@@ -1,0 +1,22 @@
+{
+    "name": "acf/session-desc",
+    "title": "Session Descripton",
+    "description": "A custom Session Descripton for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Session Descripton"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "session-desc.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/session-desc/screenshot.png"
+            }
+        }
+    }
+}

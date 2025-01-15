@@ -101,17 +101,17 @@ $accordion      = get_field('accordion');
 
 ?>
 
-<section class="pb-[120px] relative pt-[60px] mt-[-50px] flex flex-col items-center">
+<section class="pb-[50px] lg:pb-[100px] relative pt-[60px] mt-[-50px] flex flex-col items-center">
     <span class="blur-circle absolute top-[100px] left-0"></span>
     <div class="block_content">
-        <div class="flex gap-[95px]">
-            <div class="w-[56%]">
+        <div class="flex flex-wrap lg:flex-nowrap max-[1023px]:flex-col  max-[1023px]:gap-y-14 gap-[6%]">
+            <div class="w-full lg:w-[56%]">
                 <figure class="hero-img h-full">
                     <img class="rounded-tl-[100px] object-center object-cover h-full relative z-10"
                         src="<?php echo $image ?>">
                 </figure>
             </div>
-            <div class="w-[44%] relative">
+            <div class="w-full lg:w-[44%] relative">
                 <div> <?php echo $content ?> </div>
             </div>
         </div>
@@ -120,9 +120,9 @@ $accordion      = get_field('accordion');
     <!--  -->
     <span class="blur-circle absolute top-[300px] right-0 !h-[1500px] !w-[100px]"></span>
     <div class="block_content">
-        <div class="flex gap-[68px] py-16 relative">
+        <div class="flex gap-[30px] lg:gap-[68px] py-16 flex-wrap lg:flex-nowrap relative">
             <?php foreach ($cards as $key => $card) : ?>
-                <div class="hero-img rounded-t-[30px] px-[58px] py-12 w-1/2 bg-white flex flex-col h-auto"
+                <div class="hero-img rounded-t-[30px] px-[58px] py-12 w-full lg:w-1/2 bg-white flex flex-col h-auto"
                     style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                     <h3 class="text-center text-[24px] font-[700] text-[#0A4489]"><?php echo $card["title"] ?></h3>
                     <p class="!text-base text-center mt-5 ">
@@ -132,26 +132,28 @@ $accordion      = get_field('accordion');
             <?php endforeach; ?>
         </div>
         <div class="flex items-center flex-col gap-7">
-            <p class="!text-[24px] !leading-10 text-GrayText text-center block max-w-[950px]"><?php echo $text ?>
+            <p
+                class="!text-[16px] lg:!text-[24px] !leading-normal lg:!leading-10 text-GrayText text-center block max-w-[950px]">
+                <?php echo $text ?>
             </p>
         </div>
     </div>
 
     <!--  -->
-    <div class="block_content pt-[60px]">
-        <div class="flex gap-[60px]">
-            <div class="w-1/2">
+    <div class="block_content pt-[50px] lg:pt-[60px]">
+        <div class="flex  flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse gap-[30px] lg:gap-[60px]">
+            <div class="w-full lg:w-1/2">
                 <figure class="h-full">
-                    <img class="rounded-[50px] object-center object-cover lg:h-[880px] xl:h-[800px]"
+                    <img class="rounded-[20px] lg:rounded-[50px] object-center object-cover lg:h-[880px] xl:h-[800px]"
                         src="<?php echo $image_2 ?>">
                 </figure>
             </div>
-            <div class="w-1/2 relative">
+            <div class="w-full lg:w-1/2 relative">
                 <div> <?php echo $content_3 ?> </div>
                 <div class="accordion pt-[25px]">
                     <?php foreach ($accordion as $key => $item) : ?>
                         <details class="pb-[20px]">
-                            <summary><?php echo $item["tab"] ?></summary>
+                            <summary><span><?php echo $item["tab"] ?></span></summary>
                             <p class="pt-[8px]"><?php echo $item["description"] ?></p>
                         </details>
                     <?php endforeach; ?>

@@ -84,6 +84,15 @@ h3 {
     /* 42.75px */
 }
 
+h4 {
+    color: var(--Dark);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    /* 175% */
+}
+
 p {
     color: var(--GrayText);
     font-size: 18px;
@@ -91,6 +100,10 @@ p {
     font-weight: 500;
     line-height: 24px;
     /* 133.333% */
+}
+
+p a {
+    text-decoration: underline;
 }
 
 #text-image ul {
@@ -188,7 +201,6 @@ p {
 }
 
 .blur-circle {
-    display: inline-block;
     width: 351px;
     height: 278px;
     flex-shrink: 0;
@@ -237,7 +249,10 @@ p {
 .slick-prev,
 .slick-next {
     top: auto !important;
-    bottom: -80px;
+    bottom: -85px;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
 }
 
 .slick-prev {
@@ -246,6 +261,7 @@ p {
 }
 
 .slick-dots {
+    width: 50% !important;
     top: auto !important;
     bottom: -80px !important;
     text-align: start !important;
@@ -428,9 +444,14 @@ p {
     color: var(--GrayText);
     font-size: 18px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 30px;
     /* 166.667% */
+}
+
+.accordion details summary span {
+    width: 90%;
+    display: block;
 }
 
 details[open]>summary {
@@ -438,7 +459,8 @@ details[open]>summary {
     color: var(--Dark);
 }
 
-.accordion details summary::marker {
+.accordion details summary::marker,
+#faq details summary::marker {
     display: none;
     content: "";
 }
@@ -453,6 +475,8 @@ details[open]>summary {
     background-repeat: no-repeat;
     position: absolute;
     right: 0px;
+    top: 8px;
+
 }
 
 details[open]>summary:after {
@@ -464,23 +488,102 @@ details[open]>summary:after {
     display: inline-block;
     background-repeat: no-repeat;
     position: absolute;
-    right: 0px;
+    right: 8px;
+    top: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+
+#faq details summary::before {
+    content: "";
+    background: url("../assets/images/plus.svg");
+    transition: all 0.3s ease;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+@media screen and (max-width: 1023px) {
+    h1 {
+        font-size: 36px;
+        font-style: normal;
+        line-height: 50px;
+        /* 138.889% */
+    }
+
+    h2 {
+        font-size: 30px;
+        font-style: normal;
+        line-height: 45px;
+        /* 150% */
+    }
+
+    h3 {
+        font-size: 24px;
+        font-style: normal;
+        line-height: 142.5%;
+        /* 34.2px */
+    }
+
+    p {
+        font-size: 16px;
+        font-style: normal;
+        line-height: 24px;
+        /* 150% */
+    }
+
     .block_content {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
     #menu-dektop .menu-header-menu-container {
         display: none;
     }
+
+    .slick-next {
+        right: 0 !important;
+    }
+
+    .learn_more,
+    .learn_more span {
+        font-size: 18px;
+    }
+
+    #text-image ul {
+        font-size: 16px;
+    }
+
+    .conected-p p {
+        font-size: 11px;
+        line-height: 12.772px;
+        /* 116.667% */
+    }
+
+    .accordion details summary {
+        font-size: 16px;
+    }
+
+    .text-image-title {
+        width: 100%;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        position: inherit;
+        top: auto;
+        left: auto;
+        transform: none;
+
+    }
 }
 
 
-@media screen and (max-width: 1200px) {
-    .block_content {
+@media (min-width:1024px) and (max-width: 1200px) {
+
+    .block_content,
+    .text-image-title {
         padding-left: 60px !important;
         padding-right: 60px !important;
     }

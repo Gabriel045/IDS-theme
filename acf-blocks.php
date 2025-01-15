@@ -16,4 +16,10 @@ function register_acf_blocks()
     register_block_type(__DIR__ . '/blocks/conected-cards');
     register_block_type(__DIR__ . '/blocks/professional-development');
     register_block_type(__DIR__ . '/blocks/team');
+    register_block_type(__DIR__ . '/blocks/text-image-repeater');
+    register_block_type(__DIR__ . '/blocks/four-cards');
+    register_block_type(__DIR__ . '/blocks/map');
+    register_block_type(__DIR__ . '/blocks/faq');
+    register_block_type(__DIR__ . '/blocks/image');
+    register_block_type(__DIR__ . '/blocks/session-desc');
 }

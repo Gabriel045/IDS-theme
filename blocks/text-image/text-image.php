@@ -41,31 +41,39 @@ if (!empty($block['align'])) {
 $image          = get_field('image');
 $content        = get_field('content');
 $video_url      = get_field('video_url');
+$title          = get_field('title');
+$bottom_text    = get_field('bottom_text');
 
 ?>
 <script src="https://cdn.jsdelivr.net/npm/youtube-lite@1.0.0/dist/youtube-lite.min.js"></script>
-<section id="text-image" class="py-[120px] flex flex-col relative">
+<section id="text-image" class="py-12 lg:py-[100px] flex flex-col relative">
     <span class="blur-circle absolute bottom-[200px] left-0"></span>
-    <div class="block_content z-[9]">
-        <div class="flex gap-[6%]">
-            <div class="w-1/2">
+    <div class="block_content z-[9] relative">
+        <?php if ($title) : ?>
+            <div class="mt-[-50px] pb-[60px]">
+                <?php echo $title ?>
+            </div>
+        <?php endif ?>
+        <div class="flex flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse  max-[1023px]:gap-y-14 gap-[6%]">
+            <div class="w-full lg:w-1/2">
                 <figure class="h-full relative <?php echo $video_url ? "cursor-pointer play" : "" ?> ">
                     <?php if ($video_url) : ?>
-                    <img decoding="async" class="absolute top-[50%] left-[50%] w-[100px] h-[100px]"
-                        style="transform: translate(-50%, -50%);"
-                        src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/play-icon.svg">
+                        <img decoding="async" class="absolute top-[50%] left-[50%] w-[100px] h-[100px]"
+                            style="transform: translate(-50%, -50%);"
+                            src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/play-icon.svg">
                     <?php endif; ?>
                     <img decoding="async" class="object-cover h-full" src="<?php echo  $image ?>">
                 </figure>
             </div>
-            <div class="w-1/2 relative flex items-center">
+            <div class="w-full lg:w-1/2 relative flex items-center">
                 <div>
                     <?php echo $content ?>
                 </div>
             </div>
         </div>
+        <div class="mt-[60px]"><?php echo $bottom_text ?></div>
     </div>
-    <figure class="absolute bottom-[30px] left-0 rotate-180">
+    <figure class="absolute bottom-[30px] left-0 rotate-180 hidden lg:block">
         <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
     </figure>
 </section>
@@ -74,30 +82,30 @@ $video_url      = get_field('video_url');
     class="hidden fixed z-[999] justify-center items-center top-0 right-0 w-full h-full bg-[#4d4b4bba]">
     <span
         class="close-btn bg-Orange cursor-pointer w-[50px] h-[50px] rounded-[100%] text-[30px] font-[700] text-white absolute top-[50px] right-[50px] flex justify-center items-center ">X</span>
-    <div class="w-3/5">
+    <div class="w-[90%] lg:w-3/5">
         <youtube-lite class="video-container" video="<?php echo $video_url ?>" params="autoplay=1" />
     </div>
 </div>
 
 <script>
-document.querySelector('.play').addEventListener('click', () => {
-    document.getElementById('video-popup').classList.remove('hidden')
-    document.getElementById('video-popup').classList.add('flex')
+    document.querySelector('.play').addEventListener('click', () => {
+        document.getElementById('video-popup').classList.remove('hidden')
+        document.getElementById('video-popup').classList.add('flex')
 
-    setTimeout(() => {
-        document.querySelector(".video-container").click()
-    }, 300);
-})
+        setTimeout(() => {
+            document.querySelector(".video-container").click()
+        }, 300);
+    })
 
-document.querySelector('.close-btn').addEventListener('click', () => {
-    document.getElementById('video-popup').classList.remove('flex')
-    document.getElementById('video-popup').classList.add('hidden')
-})
-
-document.querySelector("#video-popup").addEventListener('click', (e) => {
-    if (e.currentTarget.querySelector(".video-container") != e.target) {
+    document.querySelector('.close-btn').addEventListener('click', () => {
         document.getElementById('video-popup').classList.remove('flex')
         document.getElementById('video-popup').classList.add('hidden')
-    }
-})
+    })
+
+    document.querySelector("#video-popup").addEventListener('click', (e) => {
+        if (e.currentTarget.querySelector(".video-container") != e.target) {
+            document.getElementById('video-popup').classList.remove('flex')
+            document.getElementById('video-popup').classList.add('hidden')
+        }
+    })
 </script>

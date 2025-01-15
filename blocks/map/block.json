@@ -1,0 +1,22 @@
+{
+    "name": "acf/map",
+    "title": "Map",
+    "description": "A custom Map for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Map"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "map.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/map/screenshot.png"
+            }
+        }
+    }
+}

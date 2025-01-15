@@ -38,40 +38,29 @@ if (!empty($block['align'])) {
 
 // Load values and assign defaults.
 
-$col_1        = get_field('col_1');
-$col_2        = get_field('col_2');
-$image        = get_field('image');
-$content      = get_field('content');
+$title        = get_field('title');
+$cards        = get_field('cards');
+
 
 ?>
-
-<section class="flex flex-col relative">
-    <div class="block_content">
-        <div class="flex flex-wrap lg:flex-nowrap gap-12 lg:gap-[10%] items-end h-auto">
-            <div><?php echo $col_1 ?></div>
-            <div><?php echo $col_2 ?></div>
-        </div>
-    </div>
-</section>
-
-<!--  -->
 <section class="py-[100px] lg:py-[120px] flex flex-col relative">
     <div class="block_content">
-        <div class="flex flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse max-[1023px]:gap-y-[60px] gap-[6%]">
-            <div class="w-full lg:w-1/2">
-                <figure class="h-full">
-                    <img decoding="async" class="rounded-[26px] object-cover h-full" src="<?php echo  $image ?>">
+        <h2 class="text-center"><?php echo $title ?></h2>
+        <div class="mt-8 flex flex-wrap gap-[1%] gap-y-12">
+            <?php foreach ($cards as $key => $card) : ?>
+            <div class="w-full md:w-[49%] lg:w-[32.5%]">
+                <figure>
+                    <img src="<?php echo $card["image"] ?>">
                 </figure>
+                <div class="mt-4"><?php echo $card["text"] ?></div>
+                <a href="<?php echo $card["link"]["url"] ?>"
+                    class="learn_more mt-4"><?php echo $card["link"]["title"] ?>
+                    <img decoding="async"
+                        src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/vector-arrow.svg">
+                </a>
             </div>
-            <div class="w-full lg:w-1/2 relative flex items-center">
-                <div>
-                    <?php echo $content ?>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
-    <figure class="absolute top-[80px] right-[-120px] xl:right-[-50px] hidden lg:block">
-        <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
-    </figure>
-    <span class="blur-circle absolute  bottom-0 right-[40%]"></span>
+    <span class="blur-circle absolute top-[50%]  !w-[100px] !h-[1000px]  left-[t0%]"></span>
 </section>

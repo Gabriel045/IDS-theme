@@ -38,33 +38,24 @@ if (!empty($block['align'])) {
 
 // Load values and assign defaults.
 
-$title              = get_field('title');
-$bottom_text        = get_field('bottom_text');
-$button             = get_field('button');
-$image              = get_field('image');
-
+$title            = get_field('title');
+$questions        = get_field('questions');
+$bottom_text      = get_field('bottom_text');
 ?>
 
-<section class="pt-8 pb-16 lg:pt-[120px] lg:pb-[120px] relative">
-    <div class="block_content relative z-[9]">
-        <div class="flex gap-9  lg:flex-nowrap  flex-wrap items-center">
-            <div class="w-full lg:w-[48%]">
-                <div><?php echo $title ?></div>
-                <p class="max-w-[474px] py-6"><?php echo $bottom_text ?>
-                </p>
-                <?php if ($button["url"]) : ?>
-                    <a class="btn-orange" href="<?php echo $button["url"] ?>"><?php echo $button["title"] ?></a>
-                <?php endif; ?>
-            </div>
-            <div class="w-full lg:w-[52%]">
-                <figure class="hero-img">
-                    <img class="aspect-square object-cover rounded-tl-[25%]" src="<?php echo $image ?>">
-                </figure>
-            </div>
+<section id="faq" class="flex flex-col relative pb-[100px]">
+    <div class="block_content">
+        <div class="text-center max-w-[500px] m-auto"><?php echo $title ?></div>
+        <div class="<?php echo $bottom_text ? 'py-20' : 'pt-20' ?>  flex flex-col gap-y-7">
+            <?php foreach ($questions as $key => $question) : ?>
+                <details class="bg-[#E8E8E84F] p-8">
+                    <summary class="cursor-pointer">
+                        <span class="text-[24px] text-Dark font-[500] ml-[15px]"><?php echo $question["title"] ?></span>
+                    </summary>
+                    <div class="mt-[30px] px-[30px]"><?php echo $question["content"] ?></div>
+                </details>
+            <?php endforeach ?>
         </div>
+        <div class="max-w-[880px] m-auto"><?php echo $bottom_text ?></div>
     </div>
-    <span class="blur-circle absolute bottom-[200px] left-0"></span>
-    <figure class="absolute lg:hidden block bottom-[-12px] right-0">
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
-    </figure>
 </section>

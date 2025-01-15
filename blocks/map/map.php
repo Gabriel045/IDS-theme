@@ -37,28 +37,17 @@ if (!empty($block['align'])) {
 }
 
 // Load values and assign defaults.
+
 $title        = get_field('title');
+$map        = get_field('map');
 ?>
 
-<section class="pt-[60px] pb-[100px] lg:pb-[140px] relative">
-    <div class="block_content flex flex-col items-center">
-        <div class="pb-[50px]"><?php echo $title ?></div>
-        <div class="lg:w-[480px] contact-form">
-            <?php echo do_shortcode("[gravityform id='1' title='false']") ?>
-        </div>
+<section class="flex flex-col relative py-[100px]">
+    <div class="block_content">
+        <h2 class="text-center"><?php echo $title ?></h2>
+        <figure class="pt-8">
+            <img src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/uploads/2025/01/image-12-1.png"
+                alt="">
+        </figure>
     </div>
-    <figure class="absolute bottom-[80px] left-0 hidden lg:block">
-        <img class="rotate-180" decoding="async"
-            src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
-    </figure>
-    <figure class="absolute top-0 right-0 hidden lg:block"
-        style="filter: brightness(0) saturate(100%) invert(82%) sepia(67%) saturate(4960%) hue-rotate(348deg) brightness(97%) contrast(84%);">
-        <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
-    </figure>
-    <figure class="absolute bottom-3 w-full left-0 lg:hidden block">
-        <img class="w-full" decoding="async"
-            src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/group-lines.svg">
-    </figure>
-    <span class="!w-[200px] !h-[200px] blur-circle absolute top-[50px] right-0"></span>
-    <span class="!w-[200px] !h-[200px] blur-circle absolute bottom-[50px] left-0"></span>
 </section>

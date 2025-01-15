@@ -1,0 +1,22 @@
+{
+    "name": "acf/text-image-repeater",
+    "title": "Text Image Repeater",
+    "description": "A custom Text Image Repeater for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Text Image Repeater"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "text-image-repeater.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/text-image-repeater/screenshot.png"
+            }
+        }
+    }
+}

@@ -38,40 +38,22 @@ if (!empty($block['align'])) {
 
 // Load values and assign defaults.
 
-$col_1        = get_field('col_1');
-$col_2        = get_field('col_2');
+$title        = get_field('title');
 $image        = get_field('image');
-$content      = get_field('content');
-
+$bottom_text  = get_field('bottom_text');
 ?>
 
 <section class="flex flex-col relative">
+    <span class="blur-circle absolute top-[150px] right-0 !h-[100px]"></span>
     <div class="block_content">
-        <div class="flex flex-wrap lg:flex-nowrap gap-12 lg:gap-[10%] items-end h-auto">
-            <div><?php echo $col_1 ?></div>
-            <div><?php echo $col_2 ?></div>
-        </div>
-    </div>
-</section>
-
-<!--  -->
-<section class="py-[100px] lg:py-[120px] flex flex-col relative">
-    <div class="block_content">
-        <div class="flex flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse max-[1023px]:gap-y-[60px] gap-[6%]">
-            <div class="w-full lg:w-1/2">
-                <figure class="h-full">
-                    <img decoding="async" class="rounded-[26px] object-cover h-full" src="<?php echo  $image ?>">
-                </figure>
+        <h2 class="text-center"><?php echo $title ?></h2>
+        <figure class="pt-8 flex justify-center">
+            <img src="<?php echo $image ?>" alt="">
+        </figure>
+        <?php if ($bottom_text) : ?>
+            <div class="flex justify-center">
+                <div class="mt-[24px] lg:max-w-[440px]"><?php echo $bottom_text ?></div>
             </div>
-            <div class="w-full lg:w-1/2 relative flex items-center">
-                <div>
-                    <?php echo $content ?>
-                </div>
-            </div>
-        </div>
+        <?php endif ?>
     </div>
-    <figure class="absolute top-[80px] right-[-120px] xl:right-[-50px] hidden lg:block">
-        <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
-    </figure>
-    <span class="blur-circle absolute  bottom-0 right-[40%]"></span>
 </section>

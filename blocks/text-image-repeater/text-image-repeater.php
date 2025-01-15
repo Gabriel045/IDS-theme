@@ -37,27 +37,32 @@ if (!empty($block['align'])) {
 }
 
 // Load values and assign defaults.
-
-$text        = get_field('text');
 $cards        = get_field('cards');
+$page_ID = get_the_ID()
 ?>
 
-<section class="flex flex-col relative">
-    <div class="block_content">
-        <div><?php echo $text ?></div>
-        <div class="flex flex-wrap gap-[1%] gap-y-12 h-auto pt-[15px] lg:pt-[60px]">
-            <?php foreach ($cards as $card) : ?>
-                <div class="w-full md:w-[49%] lg:w-[32.5%]">
-                    <figure>
-                        <img class="w-full" src="<?php echo $card['image']; ?>" alt="team">
+<section id="text-image" class="pb-[120px] flex flex-col relative">
+    <!-- <span class="blur-circle absolute bottom-[200px] left-0"></span> -->
+    <div class="block_content z-[9]">
+        <?php foreach ($cards as $key => $card) : ?>
+        <div class="pt-[60px]">
+            <?php if ($card["title"]) : ?>
+            <div class="pb-[60px]"><?php echo $card["title"] ?></div>
+            <?php endif ?>
+            <div
+                class="flex gap-[6%] max-[1023px]:gap-y-[50px] flex-wrap lg:flex-nowrap  <?php echo $card["image_position"][0] == "Right" ? "flex-col-reverse lg:flex-row-reverse" : "flex-col-reverse lg:flex-row" ?>">
+                <div class="w-full lg:w-1/2 <?php echo $page_ID == "338" ? 'flex items-center' : '' ?>">
+                    <figure class="<?php echo $page_ID != "338" ? 'h-full' : '' ?> relative ">
+                        <img decoding="async" class="object-cover h-full" src="<?php echo  $card["image"] ?>">
                     </figure>
-                    <div class="my-5"><?php echo $card["text"] ?> </div>
-                    <a href="<?php echo $card["link"]["url"] ?>" class="flex  gap-2">
-                        <span class="text-[#0A4489] text-[22px] font-[500]"><?php echo $card["link"]["title"] ?></span>
-                        <img class="w-5" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/vector-arrow.svg">
-                    </a>
                 </div>
-            <?php endforeach ?>
+                <div class="w-full lg:w-1/2 relative flex items-center">
+                    <div>
+                        <?php echo $card["content"] ?>
+                    </div>
+                </div>
+            </div>
         </div>
+        <?php endforeach ?>
     </div>
 </section>

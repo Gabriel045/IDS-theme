@@ -1,0 +1,22 @@
+{
+    "name": "acf/four-cards",
+    "title": "Four Cards",
+    "description": "A custom Four Cards for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Four Cards"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "four-cards.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/four-cards/screenshot.png"
+            }
+        }
+    }
+}

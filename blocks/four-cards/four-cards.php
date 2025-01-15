@@ -37,34 +37,23 @@ if (!empty($block['align'])) {
 }
 
 // Load values and assign defaults.
-
-$title              = get_field('title');
-$bottom_text        = get_field('bottom_text');
-$button             = get_field('button');
-$image              = get_field('image');
-
+$title       = get_field('title');
+$cards       = get_field('cards');
+$content     = get_field('content');
 ?>
 
-<section class="pt-8 pb-16 lg:pt-[120px] lg:pb-[120px] relative">
-    <div class="block_content relative z-[9]">
-        <div class="flex gap-9  lg:flex-nowrap  flex-wrap items-center">
-            <div class="w-full lg:w-[48%]">
-                <div><?php echo $title ?></div>
-                <p class="max-w-[474px] py-6"><?php echo $bottom_text ?>
-                </p>
-                <?php if ($button["url"]) : ?>
-                    <a class="btn-orange" href="<?php echo $button["url"] ?>"><?php echo $button["title"] ?></a>
-                <?php endif; ?>
-            </div>
-            <div class="w-full lg:w-[52%]">
-                <figure class="hero-img">
-                    <img class="aspect-square object-cover rounded-tl-[25%]" src="<?php echo $image ?>">
-                </figure>
-            </div>
+<section class="flex flex-col">
+    <span class="blur-circle absolute top-[150px] left-0"></span>
+    <div class="block_content pt-8 lg:pt-8">
+        <h2 class="text-center"><?php echo $title ?></h2>
+        <div class="flex gap-12 pt-16 pb-24 flex-wrap lg:flex-nowrap relative">
+            <?php foreach ($cards as $key => $card) : ?>
+                <div class="hero-img rounded-t-[30px] px-8 lg:px-[61px] py-[69px] w-full md:w-1/2 lg:w-1/4 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
+                    style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                    <h3 class="text-center text-[24px] text-white font-[700]"><?php echo $card["content"] ?></h3>
+                </div>
+            <?php endforeach; ?>
         </div>
+        <div><?php echo $content ?></div>
     </div>
-    <span class="blur-circle absolute bottom-[200px] left-0"></span>
-    <figure class="absolute lg:hidden block bottom-[-12px] right-0">
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
-    </figure>
 </section>
