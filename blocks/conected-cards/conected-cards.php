@@ -46,9 +46,9 @@ $cta         = get_field('cta');
 
 ?>
 
-<section class="pt-[120px] relative">
-    <span class="blur-circle absolute top-[300px] !w-[150px] !h-[900px] left-0"></span>
-    <span class="blur-circle absolute bottom-[200px] right-0"></span>
+<section id="conected" class="pt-[120px] relative">
+    <span class="blur-circle absolute top-[300px] !w-[150px] h-[300px] lg:!h-[900px] left-0"></span>
+    <span class="blur-circle absolute  max-[1024px]:!w-[100px] bottom-[100px] lg:bottom-[200px] right-0"></span>
     <div class="block_content flex flex-col items-center w-full">
         <div class="mb-12 lg:max-w-[681px]"><?php echo $title ?></div>
         <div class="max-w-[390px] lg:max-w-[890px] flex flex-row">
@@ -59,7 +59,8 @@ $cta         = get_field('cta');
                         <div class="conected-p  text-center"><?php echo $card["text"]  ?>
                         </div>
                         <?php if ($card["arrow"]) : ?>
-                            <a class="flex justify-center">
+                            <a target="<?php echo $card["cta"]["target"] ?>" href="<?php echo $card["cta"]["url"]  ?>"
+                                class="flex justify-center">
                                 <img class="max-[1024px]:w-6" decoding="async"
                                     src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/themes/IDS-theme/assets/images/arrow-blue.svg"
                                     style="filter: brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(564%) hue-rotate(176deg) brightness(111%) contrast(100%);">
@@ -81,7 +82,8 @@ $cta         = get_field('cta');
                         <div class="conected-p  text-center"><?php echo $card["text"]  ?>
                         </div>
                         <?php if ($card["arrow"]) : ?>
-                            <a class="flex justify-center">
+                            <a target="<?php echo $card["cta"]["target"] ?>" href="<?php echo $card["cta"]["url"]  ?>"
+                                class="flex justify-center">
                                 <img class="max-[1024px]:w-6" decoding="async"
                                     src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/themes/IDS-theme/assets/images/arrow-blue.svg"
                                     style="filter: brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(564%) hue-rotate(176deg) brightness(111%) contrast(100%);">

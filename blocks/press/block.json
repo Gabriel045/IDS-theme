@@ -1,0 +1,22 @@
+{
+    "name": "acf/press",
+    "title": "Press",
+    "description": "A custom Press for all pages.",
+    "category": "custom ACF",
+    "icon": "block-default",
+    "keywords": [
+        "Press"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "press.php"
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_my_acf_block": "/blocks/press/screenshot.png"
+            }
+        }
+    }
+}

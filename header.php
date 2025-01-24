@@ -36,7 +36,7 @@
                                 <span></span>
                             </div>
                         </span>
-                        <a href="#" class="btn-orange !hidden lg:!flex">Contact Us</a>
+                        <a href="/contact/" class="btn-orange !hidden lg:!flex">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -54,10 +54,9 @@
                     <a href="#" class="btn-orange flex">Contact Us</a>
                 </div>
             </div>
-            <span class="blur-circle absolute top-[50px] right-[-116px]"></span>
-            <span class="blur-circle absolute bottom-0 left-0"></span>
+            <span class="blur-circle absolute top-0 right-0 !w-[150px] !h-[60vh]"></span>
         </div>
-        <span class="blur-circle absolute top-[50px] right-[-116px]"></span>
+        <span class="blur-circle absolute top-0 right-0 !w-[150px] lg:!w-[200px]"></span>
     </header>
 
     <script>

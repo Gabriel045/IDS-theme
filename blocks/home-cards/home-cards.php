@@ -98,7 +98,7 @@ $content      = get_field('content');
                     style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                     <h3 class="text-center text-[24px] text-white font-[700]"><?php echo $card["title"] ?></h3>
                     <p class="!text-base !text-[#FFFFFF99] text-center"><?php echo $card["text"] ?></p>
-                    <a class="flex justify-center">
+                    <a href="<?php echo $card["link"]["url"] ?>" class="flex justify-center">
                         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/arrow-blue.svg"
                             style="filter: brightness(0) saturate(100%) invert(82%) sepia(67%) saturate(4960%) hue-rotate(348deg) brightness(97%) contrast(84%);">
                     </a>

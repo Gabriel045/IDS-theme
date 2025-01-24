@@ -22,4 +22,7 @@ function register_acf_blocks()
     register_block_type(__DIR__ . '/blocks/faq');
     register_block_type(__DIR__ . '/blocks/image');
     register_block_type(__DIR__ . '/blocks/session-desc');
+    register_block_type(__DIR__ . '/blocks/about-us');
+    register_block_type(__DIR__ . '/blocks/press');
+    register_block_type(__DIR__ . '/blocks/blog');
 }

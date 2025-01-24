@@ -37,23 +37,34 @@ if (!empty($block['align'])) {
 }
 
 // Load values and assign defaults.
-$title       = get_field('title');
-$cards       = get_field('cards');
-$content     = get_field('content');
+
+// First tab
+$text            = get_field('text');
+$articles        = get_field('articles');
+
+
 ?>
 
-<section class="flex flex-col">
-    <span class="blur-circle absolute top-[150px] left-0"></span>
-    <div class="block_content pt-8 lg:pt-8">
-        <h2 class="text-center"><?php echo $title ?></h2>
-        <div class="flex gap-12 pt-16 pb-24 flex-wrap lg:flex-nowrap relative w-3/4 lg:w-full m-auto">
-            <?php foreach ($cards as $key => $card) : ?>
-            <div class="hero-img rounded-t-[30px] px-8 lg:px-[61px] py-[69px] w-full md:w-1/2 lg:w-1/4 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <h3 class="text-center text-[24px] text-white font-[700]"><?php echo $card["content"] ?></h3>
-            </div>
-            <?php endforeach; ?>
+<section class="flex flex-col relative">
+    <div class="block_content">
+        <div> <?php echo $text ?></div>
+        <div class=" lg:w-[700px] m-auto">
+            <h3 class="py-[60px] lg:py-24">Articles About IDS</h3>
+            <?php foreach ($articles as $key => $card) : ?>
+                <article class="pb-24 flex flex-col">
+                    <figure>
+                        <img class="w-[200px]" src="<?php echo $card["image"] ?>">
+                    </figure>
+                    <h3 class="py-6"><?php echo $card["title"] ?></h3>
+                    <div class="flex gap-6">
+                        <span class="text-Orange text-[18px] font-[500]"><?php echo $card["name"] ?></span>
+                        <span class="text-GrayText text-[18px] font-[500]"><?php echo $card["date"] ?></span>
+                    </div>
+                    <div class="py-6"><?php echo $card["text"] ?></div>
+                    <a class="text-[18px] text-Dark font-[500]" target="_blank"
+                        href="<?php echo $card["cta"]["url"] ?>"><?php echo $card["cta"]["title"] ?></a>
+                </article>
+            <?php endforeach ?>
         </div>
-        <div><?php echo $content ?></div>
     </div>
 </section>

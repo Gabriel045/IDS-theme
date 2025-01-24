@@ -45,7 +45,7 @@ $image              = get_field('image');
 
 ?>
 
-<section class="pt-8 pb-16 lg:pt-[120px] lg:pb-[120px] relative">
+<section class="pt-8 pb-36 lg:pt-[120px] lg:pb-[120px] relative">
     <div class="block_content relative z-[9]">
         <div class="flex gap-9  lg:flex-nowrap  flex-wrap items-center">
             <div class="w-full lg:w-[48%]">
@@ -53,7 +53,7 @@ $image              = get_field('image');
                 <p class="max-w-[474px] py-6"><?php echo $bottom_text ?>
                 </p>
                 <?php if ($button["url"]) : ?>
-                    <a class="btn-orange" href="<?php echo $button["url"] ?>"><?php echo $button["title"] ?></a>
+                <a class="btn-orange" href="<?php echo $button["url"] ?>"><?php echo $button["title"] ?></a>
                 <?php endif; ?>
             </div>
             <div class="w-full lg:w-[52%]">

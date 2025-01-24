@@ -44,8 +44,8 @@ $cards       = get_field('cards');
 
 ?>
 
-<section class="py-[100px] lg:py-[120px] relative">
-    <span class="blur-circle absolute bottom-[80px] right-0"></span>
+<section id="slider" class="py-[100px] lg:py-[120px] relative">
+    <span class="blur-circle absolute bottom-[80px] right-0 max-[1024px]:!w-[150px]"></span>
     <div class="block_content">
         <div><?php echo $title ?></div>
         <div class="flex items-center flex-col mt-4">

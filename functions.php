@@ -89,3 +89,16 @@ if (function_exists('acf_add_options_page')) {
         ));
     }
 }
+
+
+// Add page name on the body
+function my_plugin_body_class($classes)
+{
+    global $post;
+    $post_slug = $post->post_name;
+
+    $classes[] = $post_slug;
+    return $classes;
+}
+
+add_filter('body_class', 'my_plugin_body_class');

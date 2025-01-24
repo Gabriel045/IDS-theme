@@ -46,8 +46,6 @@ section {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    position: relative;
-    z-index: 1;
 }
 
 .block_content {
@@ -89,7 +87,7 @@ h4 {
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    line-height: 42px;
+    line-height: 29px;
     /* 175% */
 }
 
@@ -102,11 +100,14 @@ p {
     /* 133.333% */
 }
 
-p a {
+p a,
+#text-image ul li a,
+#text-image-2 ul li a {
     text-decoration: underline;
 }
 
-#text-image ul {
+#text-image ul,
+#text-image-2 ul {
     color: var(--GrayText);
     font-size: 18px;
     font-style: normal;
@@ -116,11 +117,13 @@ p a {
     padding-left: 20px;
 }
 
-#text-image ul li {
+#text-image ul li,
+#text-image-2 ul {
     margin-bottom: 10px;
 }
 
-#text-image ul li::marker {
+#text-image ul li::marker,
+#text-image-2 ul li::marker {
     color: #08192d94;
 }
 
@@ -131,6 +134,9 @@ p a {
 
 .learn_more,
 .learn_more span {
+    z-index: 9;
+    position: relative;
+    text-decoration: none;
     color: #0a4489;
     font-size: 22px;
     font-weight: 500;
@@ -465,6 +471,10 @@ details[open]>summary {
     content: "";
 }
 
+#faq details[open]>summary:after {
+    display: none !important;
+}
+
 .accordion details summary::after {
     content: "";
     background: url("../assets/images/chevron.svg");
@@ -504,6 +514,19 @@ details[open]>summary:after {
     position: relative;
     left: 0px;
     top: 0px;
+}
+
+.top_section p {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    /* 166.667% */
+}
+
+.c-text {
+    font-size: 16px !important;
+    font-weight: 500 !important;
 }
 
 @media screen and (max-width: 1023px) {
@@ -553,7 +576,8 @@ details[open]>summary:after {
         font-size: 18px;
     }
 
-    #text-image ul {
+    #text-image ul,
+    #text-image-2 ul {
         font-size: 16px;
     }
 
@@ -577,8 +601,33 @@ details[open]>summary:after {
         transform: none;
 
     }
+
+    .c-text {
+        font-size: 7.411px !important;
+        font-weight: 500 !important;
+        line-height: 11.116px !important;
+        /* 150% */
+    }
+
+    .top_section p {
+        font-size: 18px;
+        line-height: 150%;
+        /* 27px */
+    }
+
+    .lg\:max-w-\[500px\] {
+        max-width: 500px;
+    }
 }
 
+.why-us #slider {
+    padding-bottom: 90px;
+}
+
+.why-us #text-image,
+.why-us #text-image-2 {
+    padding-bottom: 20px;
+}
 
 @media (min-width:1024px) and (max-width: 1200px) {
 

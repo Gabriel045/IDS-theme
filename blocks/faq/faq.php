@@ -46,14 +46,15 @@ $bottom_text      = get_field('bottom_text');
 <section id="faq" class="flex flex-col relative pb-[100px]">
     <div class="block_content">
         <div class="text-center max-w-[500px] m-auto"><?php echo $title ?></div>
-        <div class="<?php echo $bottom_text ? 'py-20' : 'pt-20' ?>  flex flex-col gap-y-7">
+        <div class="<?php echo $bottom_text ? 'py-[60px] lg:py-20' : 'pt-[60px] pt-20' ?>  flex flex-col gap-y-7">
             <?php foreach ($questions as $key => $question) : ?>
-                <details class="bg-[#E8E8E84F] p-8">
-                    <summary class="cursor-pointer">
-                        <span class="text-[24px] text-Dark font-[500] ml-[15px]"><?php echo $question["title"] ?></span>
-                    </summary>
-                    <div class="mt-[30px] px-[30px]"><?php echo $question["content"] ?></div>
-                </details>
+            <details class="bg-[#E8E8E84F] p-8">
+                <summary class="cursor-pointer flex items-center gap-3">
+                    <span
+                        class="text-[18px] lg:text-[24px] inline-block leading-normal text-Dark font-[500] w-full"><?php echo $question["title"] ?></span>
+                </summary>
+                <div class="mt-[30px] px-[30px]"><?php echo $question["content"] ?></div>
+            </details>
             <?php endforeach ?>
         </div>
         <div class="max-w-[880px] m-auto"><?php echo $bottom_text ?></div>

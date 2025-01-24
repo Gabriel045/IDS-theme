@@ -38,6 +38,7 @@ if (!empty($block['align'])) {
 
 // Load values and assign defaults.
 $title        = get_field('title');
+$page_ID      = get_the_ID();
 ?>
 
 <section class="pt-[60px] pb-[100px] lg:pb-[140px] relative">
@@ -51,7 +52,7 @@ $title        = get_field('title');
         <img class="rotate-180" decoding="async"
             src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
     </figure>
-    <figure class="absolute top-0 right-0 hidden lg:block"
+    <figure class="absolute top-0 right-0 <?php echo $page_ID != "256" ? 'hidden lg:block' : 'hidden xl:block' ?>"
         style="filter: brightness(0) saturate(100%) invert(82%) sepia(67%) saturate(4960%) hue-rotate(348deg) brightness(97%) contrast(84%);">
         <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
     </figure>
@@ -62,3 +63,18 @@ $title        = get_field('title');
     <span class="!w-[200px] !h-[200px] blur-circle absolute top-[50px] right-0"></span>
     <span class="!w-[200px] !h-[200px] blur-circle absolute bottom-[50px] left-0"></span>
 </section>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const items = document.querySelectorAll(".accordion-wrapper .column")
+        items.forEach(item => {
+            const button = item.querySelector("button")
+            if (button.textContent.includes("2025 Price Sheet")) {
+                setTimeout(() => {
+                    console.log(button)
+                    button.click()
+                }, 300);
+            }
+        });
+    });
+</script>
