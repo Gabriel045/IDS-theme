@@ -73,5 +73,4 @@ $content      = get_field('content');
     <figure class="absolute top-[80px] right-[-120px] xl:right-[-50px] hidden lg:block">
         <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
     </figure>
-    <span class="blur-circle absolute  bottom-0 right-[40%]"></span>
 </section>

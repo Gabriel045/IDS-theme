@@ -45,7 +45,7 @@ body {
 section {
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    overflow: unset;
 }
 
 .block_content {
@@ -208,7 +208,7 @@ p a,
 
 .blur-circle {
     width: 351px;
-    height: 278px;
+    height: 400px;
     flex-shrink: 0;
     border-radius: 351px;
     background: rgb(229 155 36 / 42%);
@@ -219,7 +219,11 @@ p a,
     position: relative;
 }
 
-.hero-img::after {
+.hero-img.active img {
+    border: 6px solid var(--Orange);
+}
+
+/* .hero-img::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -228,7 +232,7 @@ p a,
     height: 8px;
     z-index: 10;
     background-color: var(--Orange)
-}
+} */
 
 /* the slides */
 .slick-slide {

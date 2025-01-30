@@ -47,31 +47,31 @@ $bottom_text    = get_field('bottom_text');
 ?>
 <script src="https://cdn.jsdelivr.net/npm/youtube-lite@1.0.0/dist/youtube-lite.min.js"></script>
 <section id="text-image" class="py-12 lg:py-[100px] flex flex-col relative">
-    <span class="blur-circle absolute bottom-[200px] left-0"></span>
+    <span class="blur-circle absolute bottom-0 left-[-150px]"></span>
     <div class="block_content z-[9] relative">
         <?php if ($title) : ?>
-        <div class="title mt-[-50px] pb-9 lg:pb-[60px]">
-            <?php echo $title ?>
-        </div>
+            <div class="title mt-[-50px] pb-9 lg:pb-[60px]">
+                <?php echo $title ?>
+            </div>
         <?php endif ?>
         <?php if (!empty($image) && !empty($content)) : ?>
-        <div class="flex flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse  max-[1023px]:gap-y-14 gap-[6%]">
-            <div class="w-full lg:w-1/2">
-                <figure class="h-full relative <?php echo $video_url ? "cursor-pointer play" : "" ?> ">
-                    <?php if ($video_url) : ?>
-                    <img decoding="async" class="absolute top-[50%] left-[50%] w-[100px] h-[100px]"
-                        style="transform: translate(-50%, -50%);"
-                        src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/play-icon.svg">
-                    <?php endif; ?>
-                    <img decoding="async" class="object-cover h-full" src="<?php echo  $image ?>">
-                </figure>
-            </div>
-            <div class="w-full lg:w-1/2 relative flex items-center">
-                <div>
-                    <?php echo $content ?>
+            <div class="flex flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse  max-[1023px]:gap-y-14 gap-[6%]">
+                <div class="w-full lg:w-1/2">
+                    <figure class="h-full relative <?php echo $video_url ? "cursor-pointer play" : "" ?> ">
+                        <?php if ($video_url) : ?>
+                            <img decoding="async" class="absolute top-[50%] left-[50%] w-[100px] h-[100px]"
+                                style="transform: translate(-50%, -50%);"
+                                src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/play-icon.svg">
+                        <?php endif; ?>
+                        <img decoding="async" class="object-cover h-full" src="<?php echo  $image ?>">
+                    </figure>
+                </div>
+                <div class="w-full lg:w-1/2 relative flex items-center">
+                    <div>
+                        <?php echo $content ?>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php endif ?>
         <?php if ($bottom_text) : ?><div class="bottom_text mt-[60px]"><?php echo $bottom_text ?></div> <?php endif ?>
     </div>
@@ -90,24 +90,24 @@ $bottom_text    = get_field('bottom_text');
 </div>
 
 <script>
-document.querySelector('.play').addEventListener('click', () => {
-    document.getElementById('video-popup').classList.remove('hidden')
-    document.getElementById('video-popup').classList.add('flex')
+    document.querySelector('.play').addEventListener('click', () => {
+        document.getElementById('video-popup').classList.remove('hidden')
+        document.getElementById('video-popup').classList.add('flex')
 
-    setTimeout(() => {
-        document.querySelector(".video-container").click()
-    }, 300);
-})
+        setTimeout(() => {
+            document.querySelector(".video-container").click()
+        }, 300);
+    })
 
-document.querySelector('.close-btn').addEventListener('click', () => {
-    document.getElementById('video-popup').classList.remove('flex')
-    document.getElementById('video-popup').classList.add('hidden')
-})
-
-document.querySelector("#video-popup").addEventListener('click', (e) => {
-    if (e.currentTarget.querySelector(".video-container") != e.target) {
+    document.querySelector('.close-btn').addEventListener('click', () => {
         document.getElementById('video-popup').classList.remove('flex')
         document.getElementById('video-popup').classList.add('hidden')
-    }
-})
+    })
+
+    document.querySelector("#video-popup").addEventListener('click', (e) => {
+        if (e.currentTarget.querySelector(".video-container") != e.target) {
+            document.getElementById('video-popup').classList.remove('flex')
+            document.getElementById('video-popup').classList.add('hidden')
+        }
+    })
 </script>

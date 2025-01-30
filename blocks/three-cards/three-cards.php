@@ -45,8 +45,7 @@ $text         = get_field('text');
 $cta         = get_field('cta');
 ?>
 
-<section class="flex flex-col">
-    <span class="blur-circle absolute bottom-[100px] lg:bottom-[50px] left-0 max-[1024px]:!w-[150px]"></span>
+<section class="flex flex-col relative">
     <div class="block_content">
         <div class="flex items-center flex-col gap-6">
             <div class="max-w-[876px]"><?php echo $title ?></div>
