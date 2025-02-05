@@ -91,22 +91,22 @@ $cards_2  = get_field('cards_2');
         <h2 class="text-center">Collaborators</h2>
         <div class="flex gap-7 py-16 flex-wrap lg:flex-nowrap relative">
             <?php foreach ($cards as $key => $card) : ?>
-            <article
-                class="hero-img rounded-t-[30px] px-10 pt-[60px] pb-[40px] w-full <?php echo count($cards) == 3 ? 'lg:w-1/3' : 'w-full md:w-1/2' ?> bg-white flex flex-col justify-between gap-10 h-auto"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <figure class="w-full flex justify-center">
-                    <img src="<?php echo $card["image"] ?>">
-                </figure>
-                <h4 class="text-center text-[#0A4489]"><?php echo $card["text"] ?></h4>
-                <?php if ($card["link"]["url"]) : ?>
-                <figure class="flex justify-center">
-                    <a class="w-fit" target="<?php echo $card["link"]["target"] ?>"
-                        href="<?php echo $card["link"]["url"] ?>">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/arrow-blue.svg">
-                    </a>
-                </figure>
-                <?php endif ?>
-            </article>
+                <article
+                    class="rounded-t-[30px] px-10 pt-[60px] pb-[40px] w-full <?php echo count($cards) == 3 ? 'lg:w-1/3' : 'w-full md:w-1/2' ?> bg-white flex flex-col justify-between gap-10 h-auto"
+                    style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                    <figure class="w-full flex justify-center">
+                        <img src="<?php echo $card["image"] ?>">
+                    </figure>
+                    <h4 class="text-center text-[#0A4489]"><?php echo $card["text"] ?></h4>
+                    <?php if (!empty($card["link"]["url"])) : ?>
+                        <figure class="flex justify-center">
+                            <a class="w-fit" target="<?php echo $card["link"]["target"] ?>"
+                                href="<?php echo $card["link"]["url"] ?>">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/arrow-blue.svg">
+                            </a>
+                        </figure>
+                    <?php endif ?>
+                </article>
             <?php endforeach; ?>
         </div>
         <div class="flex justify-center">
@@ -123,12 +123,12 @@ $cards_2  = get_field('cards_2');
         </div>
         <div class="pt-24 flex gap-y-24 gap-[8%] flex-wrap">
             <?php foreach ($cards_2 as $key => $card) : ?>
-            <article class="w-full md:w-[46%]">
-                <figure class="flex justify-start">
-                    <img src="<?php echo $card["image_2"] ?>">
-                </figure>
-                <div class="pt-6"><?php echo $card["name"] ?></div>
-            </article>
+                <article class="w-full md:w-[46%]">
+                    <figure class="flex justify-start">
+                        <img src="<?php echo $card["image_2"] ?>">
+                    </figure>
+                    <div class="pt-6"><?php echo $card["name"] ?></div>
+                </article>
             <?php endforeach ?>
         </div>
     </div>

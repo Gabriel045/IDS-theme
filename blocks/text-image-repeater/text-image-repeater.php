@@ -45,25 +45,25 @@ $page_ID = get_the_ID()
     <!-- <span class="blur-circle absolute bottom-[200px] left-0"></span> -->
     <div class="block_content z-[9]">
         <?php foreach ($cards as $key => $card) : ?>
-        <div class="pt-[60px]">
-            <?php if ($card["title"]) : ?>
-            <div class="<?php echo $page_ID != "338" ? 'pb-[60px]' : 'pb-[25px] lg:pb-[60px]' ?> ">
-                <?php echo $card["title"] ?></div>
-            <?php endif ?>
-            <div
-                class="flex gap-[6%] max-[1023px]:gap-y-[50px] flex-wrap lg:flex-nowrap  <?php echo $card["image_position"][0] == "Right" ? "flex-col-reverse lg:flex-row-reverse" : "flex-col-reverse lg:flex-row" ?>">
-                <div class="w-full lg:w-1/2 <?php echo $page_ID == "338" ? 'flex items-center' : '' ?>">
-                    <figure class="<?php echo $page_ID != "338" ? 'h-full' : '' ?> relative ">
-                        <img decoding="async" class="object-cover h-full" src="<?php echo  $card["image"] ?>">
-                    </figure>
-                </div>
-                <div class="w-full lg:w-1/2 relative flex items-center">
-                    <div>
-                        <?php echo $card["content"] ?>
+            <div class="pt-[60px]">
+                <?php if (!empty($card["title"])) : ?>
+                    <div class="<?php echo $page_ID != "338" ? 'pb-[60px]' : 'pb-[25px] lg:pb-[60px]' ?> ">
+                        <?php echo $card["title"] ?></div>
+                <?php endif ?>
+                <div
+                    class="flex gap-[6%] max-[1023px]:gap-y-[50px] flex-wrap lg:flex-nowrap  <?php echo $card["image_position"][0] == "Right" ? "flex-col-reverse lg:flex-row-reverse" : "flex-col-reverse lg:flex-row" ?>">
+                    <div class="w-full lg:w-1/2 <?php echo $page_ID == "338" ? 'flex items-center' : '' ?>">
+                        <figure class="border_ <?php echo $page_ID != "338" ? 'h-full' : '' ?> relative ">
+                            <img decoding="async" class="object-cover h-full" src="<?php echo  $card["image"] ?>">
+                        </figure>
+                    </div>
+                    <div class="w-full lg:w-1/2 relative flex items-center">
+                        <div>
+                            <?php echo $card["content"] ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php endforeach ?>
     </div>
 </section>

@@ -92,7 +92,7 @@ $border_line  = get_field('border_line');
         </div>
         <div class="flex gap-12 pt-16 py-32 flex-wrap lg:flex-nowrap relative">
             <?php foreach ($cards_2 as $key => $card) : ?>
-                <div class="hero-img rounded-t-[30px] px-8 lg:px-[61px] py-[69px] w-full lg:w-1/2 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
+                <div class="rounded-t-[30px] px-8 lg:px-[61px] py-[69px] w-full lg:w-1/2 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
                     style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                     <h3 class="text-center text-[24px] text-white font-[700]"><?php echo $card["title"] ?></h3>
                     <p class="!text-base !text-[#FFFFFF99] text-center"><?php echo $card["text"] ?></p>

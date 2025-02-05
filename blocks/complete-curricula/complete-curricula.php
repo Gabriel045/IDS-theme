@@ -59,8 +59,8 @@ $content      = get_field('content');
     <div class="block_content">
         <div class="flex flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse max-[1023px]:gap-y-[60px] gap-[6%]">
             <div class="w-full lg:w-1/2">
-                <figure class="h-full">
-                    <img decoding="async" class="rounded-[26px] object-cover h-full" src="<?php echo  $image ?>">
+                <figure class="border_">
+                    <img decoding="async" class="rounded-[26px] object-cover" src="<?php echo  $image ?>">
                 </figure>
             </div>
             <div class="w-full lg:w-1/2 relative flex items-center">

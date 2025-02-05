@@ -53,12 +53,12 @@ $border_line        = get_field('border_line');
                 <div><?php echo $title ?></div>
                 <p class="max-w-[474px] py-6"><?php echo $bottom_text ?>
                 </p>
-                <?php if ($button["url"]) : ?>
+                <?php if (!empty($button["url"])) : ?>
                     <a class="btn-orange" href="<?php echo $button["url"] ?>"><?php echo $button["title"] ?></a>
                 <?php endif; ?>
             </div>
             <div class="w-full lg:w-[52%]">
-                <?php if ($image) : ?>
+                <?php if (!empty($image)) : ?>
                     <figure class="hero-img <?php echo $border_line ? 'active' : '' ?>">
                         <img class="aspect-square object-cover rounded-tl-[25%]"
                             style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" src="<?php echo $image ?>">

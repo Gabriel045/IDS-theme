@@ -219,8 +219,9 @@ p a,
     position: relative;
 }
 
-.hero-img.active img {
-    border: 6px solid var(--Orange);
+.hero-img img,
+.border_ img:first-child {
+    border: 6px solid #E59B24;
 }
 
 /* .hero-img::after {

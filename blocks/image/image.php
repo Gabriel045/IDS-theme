@@ -50,7 +50,7 @@ $bottom_text  = get_field('bottom_text');
         <figure class="pt-8 flex justify-center">
             <img src="<?php echo $image ?>" alt="">
         </figure>
-        <?php if ($bottom_text) : ?>
+        <?php if (!empty($bottom_text)) : ?>
             <div class="flex justify-center">
                 <div class="mt-[24px] lg:max-w-[440px]"><?php echo $bottom_text ?></div>
             </div>
