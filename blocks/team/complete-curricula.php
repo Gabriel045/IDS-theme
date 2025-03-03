@@ -38,22 +38,25 @@ if (!empty($block['align'])) {
 
 // Load values and assign defaults.
 
-$title        = get_field('title');
-$image        = get_field('image');
-$bottom_text  = get_field('bottom_text');
+$text        = get_field('text');
+$cards        = get_field('cards');
 ?>
 
 <section class="flex flex-col relative">
-    <span class="blur-circle absolute top-[150px] right-0 !h-[100px]"></span>
     <div class="block_content">
-        <h2 class="text-center"><?php echo $title ?></h2>
-        <figure class="pt-8 flex justify-center">
-            <img src="<?php echo $image ?>" alt="">
-        </figure>
-        <?php if (!empty($bottom_text)) : ?>
-            <div class="flex justify-center">
-                <div class="mt-[24px] lg:max-w-[440px]"><?php echo $bottom_text ?></div>
-            </div>
-        <?php endif ?>
+        <div class="flex flex-wrap gap-[2%] gap-y-12 h-auto">
+            <?php foreach ($cards as $card) : ?>
+                <div class="w-full md:w-1/2 lg:w-1/3">
+                    <figure>
+                        <img src="<?php echo $card['image']; ?>" alt="team">
+                    </figure>
+                    <div class="my-5"><?php echo $card["text"] ?> </div>
+                    <a href="<?php echo $card["link"]["url"] ?>" class="flex flex-col gap-2">
+                        <span><?php echo $card["link"]["title"] ?></span>
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/vector-arrow.svg">
+                    </a>
+                </div>
+            <?php endforeach ?>
+        </div>
     </div>
 </section>

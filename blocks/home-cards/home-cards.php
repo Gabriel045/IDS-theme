@@ -52,28 +52,26 @@ $cards_2       = get_field('cards_2');
 // third tab
 $image        = get_field('image');
 $content      = get_field('content');
+$border_line  = get_field('border_line');
 
 
 
 ?>
 
-<section class="flex flex-col">
-    <span class="blur-circle absolute top-[200px] left-0"></span>
-    <span class="blur-circle absolute top-[800px] left-0"></span>
-    <div class="block_content">
+<section class="flex flex-col relative">
+    <span class="blur-circle absolute top-0 left-[-170px] !h-[500px]"></span>
+    <span class="blur-circle absolute top-[1000px] left-[-170px] !h-[500px]"></span>
+    <div class="block_content relative pb-32 overflow-hidden">
         <div><?php echo $title ?></div>
+        <figure class="absolute bottom-[10px] z-[1] max-[1200px]:right-[-130px] right-0 hidden lg:block">
+            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
+        </figure>
         <div class="flex gap-7 py-14 lg:py-16 flex-wrap lg:flex-nowrap relative">
-            <figure class="absolute bottom-[-180px] z-[1] right-[-165px] hidden lg:block">
-                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
-            </figure>
             <?php foreach ($cards as $key => $card) : ?>
-                <div class="hero-img rounded-t-[30px] px-10 pt-[60px] pb-[40px] w-full lg:w-1/3 bg-white flex flex-col justify-between gap-10 h-auto"
+                <div class="hero-img rounded-t-[30px] px-10 pt-[60px] pb-[80px] w-full lg:w-1/3 bg-white flex flex-col gap-10 h-auto"
                     style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                     <h3 class="text-center text-[24px] font-[700] text-[#0A4489]"><?php echo $card["title"] ?></h3>
                     <p class="!text-base text-center"><?php echo $card["text"] ?></p>
-                    <a class="flex justify-center">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/arrow-blue.svg">
-                    </a>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -83,18 +81,18 @@ $content      = get_field('content');
         </div>
     </div>
     <!-- Second Tab  -->
-    <div class="block_content pt-14 lg:pt-24">
+    <div class="block_content overflow-hidden relative">
+        <figure class="absolute top-[485px] max-[1300px]:right-[-130px] right-0 z-[1] hidden lg:block"
+            style="filter: brightness(0) saturate(100%) invert(82%) sepia(67%) saturate(4960%) hue-rotate(348deg) brightness(97%) contrast(84%);">
+            <img src=" <?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
+        </figure>
         <div><?php echo $title_2 ?></div>
         <div class="flex items-center flex-col mt-8">
             <p class="text-GrayText text-center block"><?php echo $heading ?></p>
         </div>
-        <div class="flex gap-12 py-16 flex-wrap lg:flex-nowrap relative">
-            <figure class="absolute bottom-[-180px] right-[-160px] z-[1] hidden lg:block"
-                style="filter: brightness(0) saturate(100%) invert(82%) sepia(67%) saturate(4960%) hue-rotate(348deg) brightness(97%) contrast(84%);">
-                <img src=" <?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
-            </figure>
+        <div class="flex gap-12 pt-16 py-32 flex-wrap lg:flex-nowrap relative">
             <?php foreach ($cards_2 as $key => $card) : ?>
-                <div class="hero-img rounded-t-[30px] px-8 lg:px-[61px] py-[69px] w-full lg:w-1/2 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
+                <div class="rounded-t-[30px] px-8 lg:px-[61px] py-[69px] w-full lg:w-1/2 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
                     style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                     <h3 class="text-center text-[24px] text-white font-[700]"><?php echo $card["title"] ?></h3>
                     <p class="!text-base !text-[#FFFFFF99] text-center"><?php echo $card["text"] ?></p>
@@ -105,12 +103,10 @@ $content      = get_field('content');
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
-    <!-- Third Tab  -->
-    <div class="block_content pt-14 lg:pt-24">
+        <!-- Third Tab  -->
         <div class="flex flex-wrap lg:flex-nowrap flex-col-reverse lg:flex-row gap-10 lg:gap-[95px]">
             <div class="w-full lg:w-[56%]">
-                <figure class="hero-img h-full">
+                <figure class="hero-img h-full <?php echo $border_line ? 'active' : '' ?>">
                     <img decoding="async" class="rounded-tl-[100px] object-left object-cover h-full relative z-10"
                         src="<?php echo $image  ?>">
                 </figure>

@@ -61,9 +61,11 @@ $cards       = get_field('cards');
                         <?php echo $card["testimonial"] ?>
                     </p>
                     <div class="flex fle-row gap-5 mt-7">
-                        <figure>
-                            <img class="w-11 h-11 rounded-[100%] object-cover" src=" <?php echo $card["image"] ?>">
-                        </figure>
+                        <?php if (!empty($card["image"])) : ?>
+                            <figure>
+                                <img class="w-11 h-11 rounded-[100%] object-cover" src=" <?php echo $card["image"] ?>">
+                            </figure>
+                        <?php endif ?>
                         <div class="flex flex-col">
                             <p class="text-Dark font-[700] text-[18px]">
                                 <?php echo $card["full_name"] ?>
@@ -83,7 +85,7 @@ $cards       = get_field('cards');
     jQuery(document).ready(() => {
         jQuery('#multiple-items').slick({
             infinite: true,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             slidesToShow: 3,
             slidesToScroll: 1,

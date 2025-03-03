@@ -27,7 +27,17 @@
                     <?php echo  wp_nav_menu(array(
                         'menu'   => 'Header Menu',
                     ));  ?>
-
+                    <div class="hidden lg:block">
+                        <form class="relative" role="search" method="get" id="searchform" class="searchform"
+                            action="https://wordpress-755960-5157946.cloudwaysapps.com/">
+                            <div class="flex justify-end">
+                                <input type="text" placeholder="Search" name="s" id="s">
+                                <button class="right-[6px] absolute top-[6px]" type="submit" id="searchsubmit"
+                                    value=""><img class="w-[20px] relative ml-[4px] mt-[1px]"
+                                        src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/search.png"></button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="">
                         <span class="z-[99] relative nline-block lg:hidden cursor-pointer menu-mobile">
                             <div class="" id="nav-icon4">
@@ -38,17 +48,27 @@
                         </span>
                         <a href="/contact/" class="btn-orange !hidden lg:!flex">Contact Us</a>
                     </div>
-                </div>
-            </div>
+                </div>            </div>
         </div>
         <!-- mobile -->
-        <div id="menu-mobile" class="menu-mobile-container lg:hidden h-[88vh] overflow-y-auto overflow-x-hidden">
-            <div class="flex flex-col justify-between px-[40px] py-[80px] h-full">
+        <div id="menu-mobile" class="menu-mobile-container lg:hidden overflow-y-auto overflow-x-hidden">
+            <div class="flex flex-col justify-between px-[40px] py-[60px] h-full">
                 <div class="">
                     <?php echo  wp_nav_menu(array(
                         'menu'   => 'Header menu',
                     ));  ?>
 
+                </div>
+                <div class="pb-[30px]">
+                     <form class="relative w-full" role="search" method="get" id="searchform"
+                        action="https://wordpress-755960-5157946.cloudwaysapps.com/">
+                        <div>
+                            <input class="w-full" type="text" placeholder="Search" name="s" id="s">
+                            <button class="right-[6px] absolute top-[6px]" type="submit" id="searchsubmit" value=""><img
+                                    class="w-[20px] relative ml-[4px] mt-[1px]"
+                                    src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/search.png"></button>
+                        </div>
+                    </form>
                 </div>
                 <div class="flex justify-center">
                     <a href="#" class="btn-orange flex">Contact Us</a>
@@ -60,11 +80,11 @@
     </header>
 
     <script>
-        window.addEventListener("load", (event) => {
-            const navIcon = document.querySelector("#nav-icon4")
-            navIcon.addEventListener("click", () => {
-                navIcon.classList.toggle("open");
-                document.querySelector("#menu-mobile").classList.toggle("active");
-            });
+    window.addEventListener("load", (event) => {
+        const navIcon = document.querySelector("#nav-icon4")
+        navIcon.addEventListener("click", () => {
+            navIcon.classList.toggle("open");
+            document.querySelector("#menu-mobile").classList.toggle("active");
         });
+    });
     </script>

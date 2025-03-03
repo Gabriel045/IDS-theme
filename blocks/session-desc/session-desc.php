@@ -43,24 +43,19 @@ $cards        = get_field('cards');
 
 
 ?>
-<section class="py-[100px] lg:py-[120px] flex flex-col relative">
+<section class="pb-[100px] lg:pb-[120px] flex flex-col relative">
     <div class="block_content">
         <h2 class="text-center"><?php echo $title ?></h2>
         <div class="mt-8 flex flex-wrap gap-[1%] gap-y-12">
             <?php foreach ($cards as $key => $card) : ?>
-            <div class="w-full md:w-[49%] lg:w-[32.5%]">
-                <figure>
-                    <img src="<?php echo $card["image"] ?>">
-                </figure>
-                <div class="mt-4"><?php echo $card["text"] ?></div>
-                <a href="<?php echo $card["link"]["url"] ?>"
-                    class="learn_more mt-4"><?php echo $card["link"]["title"] ?>
-                    <img decoding="async"
-                        src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/vector-arrow.svg">
-                </a>
-            </div>
+                <div class="w-full md:w-[49%] lg:w-[32.5%]">
+                    <figure>
+                        <img src="<?php echo $card["image"] ?>">
+                    </figure>
+                    <div class="mt-4"><?php echo $card["text"] ?></div>
+                </div>
             <?php endforeach ?>
         </div>
     </div>
-    <span class="blur-circle absolute top-[50%]  !w-[100px] !h-[1000px]  left-[t0%]"></span>
+    <span class="blur-circle absolute top-[50%]  !w-[100px] !h-[1000px]  left-[0%]"></span>
 </section>

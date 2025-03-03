@@ -46,7 +46,7 @@ $page_name    = get_the_title();
 <section class="flex flex-col relative py-[60px] lg:py-[100px] <?php echo $page_name == "Contact" ?  "!pt-0" : "" ?>">
     <div class="block_content">
         <h2 class="text-center"><?php echo $title ?></h2>
-        <div class="f-full pt-16">
+        <div id="map" class="f-full pt-16">
             <iframe src="https://www.google.com/maps/d/embed?mid=1u_QeMKztk-XoXDxUUIi5uaPhyXay0SiS&ehbc=2E312F"
                 width="100%" height="600"></iframe>
         </div>

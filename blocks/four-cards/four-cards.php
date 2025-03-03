@@ -48,7 +48,7 @@ $content     = get_field('content');
         <h2 class="text-center"><?php echo $title ?></h2>
         <div class="flex gap-12 pt-16 pb-24 flex-wrap lg:flex-nowrap relative w-3/4 lg:w-full m-auto">
             <?php foreach ($cards as $key => $card) : ?>
-            <div class="hero-img rounded-t-[30px] px-8 lg:px-[61px] py-[69px] w-full md:w-1/2 lg:w-1/4 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
+            <div class="hero-img rounded-t-[30px] px-8 py-[69px] w-full md:w-1/2 lg:w-1/4 bg-[#0A4489] flex flex-col justify-between gap-10 h-auto"
                 style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                 <h3 class="text-center text-[24px] text-white font-[700]"><?php echo $card["content"] ?></h3>
             </div>

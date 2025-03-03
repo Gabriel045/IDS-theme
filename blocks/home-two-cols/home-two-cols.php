@@ -40,20 +40,20 @@ if (!empty($block['align'])) {
 
 $image        = get_field('image');
 $title        = get_field('title');
-// $button             = get_field('button');
+$border_line  = get_field('border_line');
 
 ?>
 
 <section class="pb-10 lg:pb-[120px] relative pt-[60px] mt-[-50px]">
-    <span class="blur-circle absolute top-[100px] lg:top-[200px] left-0  max-[1023px]:!w-[200px]"></span>
-    <span class="blur-circle absolute bottom-[200px] lg:bottom-auto top-auto lg:top-[200px] right-0 !h-[600px]"></span>
+    <span
+        class="blur-circle absolute bottom-[200px] lg:bottom-auto top-auto lg:top-[200px] right-0 !h-[600px] !w-[150px]"></span>
     <figure class="absolute hidden lg:block top-0 right-0">
         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-463.svg">
     </figure>
     <div class="block_content">
         <div class="flex flex-wrap lg:flex-nowrap flex-col-reverse lg:flex-row gap-10 lg:gap-[95px]">
             <div class="w-full lg:w-[56%]">
-                <figure class="hero-img h-full">
+                <figure class="hero-img h-full <?php echo $border_line ? 'active' : '' ?>">
                     <img class="rounded-tl-[100px] object-center object-cover h-full relative z-10"
                         src="<?php echo $image ?>">
                 </figure>

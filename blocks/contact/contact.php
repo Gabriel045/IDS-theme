@@ -61,20 +61,5 @@ $page_ID      = get_the_ID();
             src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/group-lines.svg">
     </figure>
     <span class="!w-[200px] !h-[200px] blur-circle absolute top-[50px] right-0"></span>
-    <span class="!w-[200px] !h-[200px] blur-circle absolute bottom-[50px] left-0"></span>
+    <span class="!w-[200px] !h-[200px] blur-circle absolute bottom-[50px] left-[-150px]"></span>
 </section>
-
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const items = document.querySelectorAll(".accordion-wrapper .column")
-        items.forEach(item => {
-            const button = item.querySelector("button")
-            if (button.textContent.includes("2025 Price Sheet")) {
-                setTimeout(() => {
-                    console.log(button)
-                    button.click()
-                }, 300);
-            }
-        });
-    });
-</script>

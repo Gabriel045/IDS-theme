@@ -54,11 +54,11 @@ $cta         = get_field('cta');
         <div class="max-w-[390px] lg:max-w-[890px] flex flex-row">
             <div class="flex flex-col gap-y-[57px] lg:gap-y-[126px]  w-[40%]">
                 <?php foreach ($cards as $key => $card) : ?>
-                    <div class="hero-img h-[155px] lg:h-[340px] rounded-t-[30px] px-[18px] lg:px-[40px] py-11 lg:py-[69px] w-full bg-[#0A4489] flex flex-col justify-center  gap-2 lg:gap-10"
+                    <div class="z-[99] h-[155px] lg:h-[340px] rounded-t-[30px] px-[18px] lg:px-[40px] py-11 lg:py-[69px] w-full bg-[#0A4489] flex flex-col justify-center  gap-2 lg:gap-10"
                         style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                         <div class="conected-p  text-center"><?php echo $card["text"]  ?>
                         </div>
-                        <?php if ($card["arrow"]) : ?>
+                        <?php if (!empty($card["arrow"])) : ?>
                             <a target="<?php echo $card["cta"]["target"] ?>" href="<?php echo $card["cta"]["url"]  ?>"
                                 class="flex justify-center">
                                 <img class="max-[1024px]:w-6" decoding="async"
@@ -77,11 +77,11 @@ $cta         = get_field('cta');
             </div>
             <div class="flex flex-col gap-y-[57px] lg:gap-y-[126px] w-[40%] mt-[106px] lg:mt-[233px]">
                 <?php foreach ($cards_2 as $key => $card) : ?>
-                    <div class="hero-img h-[155px] lg:h-[340px] rounded-t-[30px] px-[18px] lg:px-[40px] py-11 lg:py-[69px] w-full bg-[#0A4489] flex flex-col justify-center  gap-2 lg:gap-10"
+                    <div class="z-[99] h-[155px] lg:h-[340px] rounded-t-[30px] px-[18px] lg:px-[40px] py-11 lg:py-[69px] w-full bg-[#0A4489] flex flex-col justify-center  gap-2 lg:gap-10"
                         style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                         <div class="conected-p  text-center"><?php echo $card["text"]  ?>
                         </div>
-                        <?php if ($card["arrow"]) : ?>
+                        <?php if (!empty($card["arrow"])) : ?>
                             <a target="<?php echo $card["cta"]["target"] ?>" href="<?php echo $card["cta"]["url"]  ?>"
                                 class="flex justify-center">
                                 <img class="max-[1024px]:w-6" decoding="async"
@@ -93,7 +93,7 @@ $cta         = get_field('cta');
                 <?php endforeach ?>
             </div>
         </div>
-        <?php if ($cta["url"]): ?>
+        <?php if (!empty($cta["url"])): ?>
             <a class="btn-orange mt-[80px]" href="<?php echo $cta["url"] ?>"><?php echo $cta["title"] ?> </a>
         <?php endif ?>
     </div>

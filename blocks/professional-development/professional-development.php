@@ -38,53 +38,6 @@ if (!empty($block['align'])) {
 
 // Load values and assign defaults.
 
-$col_1        = get_field('col_1');
-$col_2        = get_field('col_2');
-$image        = get_field('image');
-$content      = get_field('content');
-
-?>
-
-<?php
-
-/**
- * Testimonial Block Template.
- *
- * @param   array $block The block settings and attributes.
- * @param   string $content The block inner HTML (empty).
- * @param   bool $is_preview True during backend preview render.
- * @param   int $post_id The post ID the block is rendering content against.
- *          This is either the post ID currently being displayed inside a query loop,
- *          or the post ID of the post hosting this block.
- * @param   array $context The context provided to the block by the post or it's parent block.
- */
-
-
-if (isset($block['data']['preview_image_my_acf_block'])) {
-
-    echo '<img src="' . get_template_directory_uri() . $block['data']['preview_image_my_acf_block'] . ' " style="width: 100%; height: auto;">';
-
-    return;
-}
-
-
-// Support custom "anchor" values.
-$anchor = '';
-if (!empty($block['anchor'])) {
-    $anchor = 'id="' . esc_attr($block['anchor']) . '" ';
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'hero-block';
-if (!empty($block['className'])) {
-    $class_name .= ' ' . $block['className'];
-}
-if (!empty($block['align'])) {
-    $class_name .= ' align' . $block['align'];
-}
-
-// Load values and assign defaults.
-
 // First tab
 $image        = get_field('image');
 $content      = get_field('content');
@@ -143,7 +96,7 @@ $accordion      = get_field('accordion');
     <div class="block_content pt-[50px] lg:pt-[60px]">
         <div class="flex  flex-wrap lg:flex-nowrap max-[1023px]:flex-col-reverse gap-[30px] lg:gap-[60px]">
             <div class="w-full lg:w-1/2">
-                <figure class="h-full">
+                <figure class="h-full border_">
                     <img class="rounded-[20px] lg:rounded-[50px] object-center object-cover lg:h-[880px] xl:h-[800px]"
                         src="<?php echo $image_2 ?>">
                 </figure>

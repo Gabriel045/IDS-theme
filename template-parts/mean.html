@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/konva@7.0.7/konva.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Introduction to Data Science</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-width: 650;
+            min-height: 550;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script>
+        var stageWidth = 650;
+        var stageHeight = 550;
+        function inRange(x, min, max) {
+            return ((x - min) * (x - max) <= 0);
+        }
+        const median = arr => {
+            const mid = Math.floor(arr.length / 2),
+                nums = [...arr].sort((a, b) => a - b);
+            return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+        };
+        function mode(numbers) {
+            // as result can be bimodal or multi-modal, the returned result is provided as an array
+            // mode of [3, 5, 4, 4, 1, 1, 2, 3] = [1, 3, 4]
+            var modes = [],
+                count = [],
+                i, number, maxIndex = 0;
+
+            for (i = 0; i < numbers.length; i += 1) {
+                number = numbers[i];
+                count[number] = (count[number] || 0) + 1;
+                if (count[number] > maxIndex) {
+                    maxIndex = count[number];
+                }
+            }
+
+            for (i in count)
+                if (count.hasOwnProperty(i)) {
+                    if (count[i] === maxIndex) {
+                        modes.push(Number(i));
+                    }
+                }
+
+            return modes;
+        }
+
+
+        var recorder = [];
+        var recorder23 = [];
+        function roundup(x) {
+            return Math.round(x * 100) / 100
+        }
+        function mean(numbers) {
+            var total = 0,
+                i;
+            for (i = 0; i < numbers.length; i += 1) {
+                total += numbers[i];
+            }
+            return roundup(total / numbers.length);
+        }
+
+        for (var n = 0; n < 10; n++) {
+            recorder[n] = 0;
+        }
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        var stage = new Konva.Stage({
+            container: 'container',
+            //width: width,
+            //height: height,
+            width: stageWidth,
+            height: stageHeight,
+        });
+
+        var layer = new Konva.Layer();
+
+        stage.add(layer);
+
+        var tempLayer = new Konva.Layer();
+        stage.add(tempLayer);
+
+        var textIDS = new Konva.Text({
+            x: 25,
+            y: 25,
+            fill: 'black',
+            fontSize: 18,
+            text: 'Introduction to Data Science '
+        });
+        layer.add(textIDS);
+        var textIDS2 = new Konva.Text({
+            x: 25,
+            y: 50,
+            fill: 'black',
+            fontSize: 12,
+            text: 'Mean, Median, and Mode'
+        });
+        layer.add(textIDS2);
+
+        var text = new Konva.Text({
+            x: 100,
+            y: 0,
+            fill: 'black',
+            text: 'Debugger',
+            visible: false
+        });
+        layer.add(text);
+        var text0 = new Konva.Text({
+            x: 50,
+            y: 100,
+            fill: 'black',
+            text: 'Step 1: Drag tokens below:'
+        });
+        layer.add(text0);
+
+        var textStep3 = new Konva.Text({
+            x: 325,
+            y: 75,
+            fill: 'black',
+            text: 'Step 3: Move Balance Point: '
+        });
+        layer.add(textStep3);
+
+
+        var textAnswer = new Konva.Text({
+            x: 50,
+            y: 425,
+            fill: 'black',
+            text: 'Array :   \n',
+        });
+        layer.add(textAnswer);
+        var textAnswer2 = new Konva.Text({
+            x: 150,
+            y: 450,
+            fill: 'black',
+            //text: ' Mean :  \nMedian:  \nMode : \n',
+        });
+        layer.add(textAnswer2);
+
+        var text4 = new Konva.Text({
+            x: 325,
+            y: 25,
+            fill: 'black',
+            text: 'Step 2: Choose a Study:'
+        });
+        layer.add(text4);
+
+        var text3EQ = new Konva.Text({
+            x: 325,
+            y: 490,
+            fill: 'black',
+            text: ' Calulation: NA '
+        });
+        layer.add(text3EQ);
+
+        var text7Debugger = new Konva.Text({
+            x: 400,
+            y: 0,
+            fill: 'black',
+            visible: false
+        });
+        layer.add(text7Debugger);
+
+        var greenLine1 = new Konva.Line({
+            points: [25, 98 + 50, 300, 98 + 50, 300, 48 + 50, 25, 48 + 50, 25, 98 + 50],
+            stroke: 'green',
+            strokeWidth: 2,
+            lineJoin: 'round',
+
+        });
+        layer.add(greenLine1);
+
+        var greenLine11 = new Konva.Line({
+            points: [25, 398, 300, 398, 300, 148, 25, 148, 25, 398],
+            stroke: 'green',
+            strokeWidth: 2,
+            lineJoin: 'round',
+
+        });
+        layer.add(greenLine11);
+
+        var greenLine2 = new Array(); var greenLine22 = new Array();
+        for (var i = 1; i <= 10; i++) {
+            greenLine2[i] = new Konva.Text({
+                x: i * 25 + 25 - 3,
+                y: 398,
+                fill: 'black',
+                text: i,
+                align: 'center',
+                verticalAlign: 'middle',
+            })
+            layer.add(greenLine2[i]);
+            greenLine22[i] = new Konva.Text({
+                x: i * 25 + 25 - 3 + 300,
+                y: 398 + 10,
+                fill: 'black',
+                text: i,
+                visible: false,
+                align: 'center',
+                verticalAlign: 'middle',
+
+            })
+            layer.add(greenLine22[i]);
+        }
+        greenLine2[10].x(greenLine2[10].x() - 4)
+
+
+        var greenLine3 = new Konva.Line({
+            points: [325, 350, 600, 350],
+            stroke: 'green',
+            strokeWidth: 2,
+            lineJoin: 'round',
+            name: 'line 3',
+
+        });
+        layer.add(greenLine3);
+
+        var greenLinebar = new Konva.Line({
+            points: [325, 150, 600, 150],
+            stroke: 'orange',
+            strokeWidth: 10,
+            lineJoin: 'round',
+            name: 'line 7',
+            opacity: 0.6,
+            draggable: true,
+            visible: false,
+            dragBoundFunc: function (pos) {
+                var newY = pos.y < -5 ? -5 : pos.y;
+                newY = newY > 250 ? 250 : newY;
+                return {
+                    x: 0,
+                    y: newY,
+                };
+            }
+        });
+        layer.add(greenLinebar);
+
+        var greenLinebar2 = new Konva.Line({
+            points: [325, 400, 325, 440],
+            stroke: 'orange',
+            strokeWidth: 10,
+            lineJoin: 'round',
+            name: 'line 8',
+            opacity: 0.6,
+            draggable: true,
+            visible: false,
+            dragBoundFunc: function (pos) {
+                var newX = pos.x < -5 ? -5 : pos.x;
+                newX = newX > 275 ? 275 : newX;
+                return {
+                    x: newX,
+                    y: 0,
+                };
+            }
+        });
+        layer.add(greenLinebar2);
+
+        var followmeter = new Konva.Text({
+            x: 451,
+            y: 375,
+            fill: 'black',
+            text: '5.5 \n '
+        });
+        layer.add(followmeter);
+
+        var balancepoint = new Konva.RegularPolygon({
+            x: (325 + 600) / 2,
+            y: 375,
+            sides: 3,
+            radius: 21,
+            fill: 'orange',
+            stroke: 'orange',
+            opacity: 0.6,
+            strokeWidth: 4,
+            draggable: true,
+            name: 'balancepoint 0',
+            dragBoundFunc: function (pos) {
+                var newX = pos.x < 325 ? 325 : pos.x;
+                newX = newX > 600 ? 600 : newX;
+                return {
+                    x: newX,
+                    y: 375,
+                };
+            }
+        });
+        layer.add(balancepoint);
+
+        var showselect = 0;
+        var showbtn = new Konva.Circle({
+            x: 50,
+            y: 450,
+            radius: 8,
+            stroke: 'black',
+            fill: 'white',
+            strokeWidth: 2,
+            name: 'ctrl ' + 32,
+        })
+        var showtxt = new Konva.Text({
+            x: 50 + 14,
+            y: 450 - 4,
+            fill: 'black',
+            text: 'Show Result'
+        })
+        showbtn.on('click', function (e) {
+            e.target.fire('touchstart')
+        })
+        showbtn.on('touchstart', function (e) {
+            showselect = 1 - showselect
+            if (showselect < 1) {
+                showbtn.fill('white')
+            } else {
+                showbtn.fill('black')
+            }
+            stage.fire('dragmove')
+
+        })
+        showtxt.on('touchstart', function (e) {
+            showbtn.fire('touchstart')
+        })
+        showtxt.on('click', function (e) {
+            showbtn.fire('touchstart')
+        })
+        layer.add(showbtn);
+        layer.add(showtxt);
+
+        var showselect2 = 0;
+        var showbtn2 = new Konva.Circle({
+            x: 325,
+            y: 475,
+            radius: 8,
+            stroke: 'black',
+            fill: 'white',
+            strokeWidth: 2,
+            name: 'ctrl ' + 33,
+        })
+        var showtxt2 = new Konva.Text({
+            x: 325 + 14,
+            y: 475 - 4,
+            fill: 'black',
+            text: 'Show Calculation'
+        })
+        showbtn2.on('click', function (e) {
+            e.target.fire('touchstart')
+        })
+        showbtn2.on('touchstart', function (e) {
+            showselect2 = 1 - showselect2
+            if (showselect2 < 1) {
+                showbtn2.fill('white')
+            } else {
+                showbtn2.fill('black')
+            }
+            stage.fire('dragmove')
+        })
+        showtxt2.on('touchstart', function (e) {
+            showbtn2.fire('touchstart')
+        })
+        showtxt2.on('click', function (e) {
+            showbtn2.fire('touchstart')
+        })
+        layer.add(showbtn2);
+        layer.add(showtxt2);
+
+
+        var ctlselect = [1, 0, 0];
+        var ctlbtn = [1, 0, 0];
+        var ctltxt = new Array();
+        for (var i = 0; i < 3; i++) {
+            ctlbtn[i] = new Konva.Circle({
+                x: 349 + 100 * i,
+                y: 101 - 50,
+                radius: 8,
+                stroke: 'black',
+                strokeWidth: 2,
+                name: 'ctrl ' + i,
+            })
+            if (ctlselect[i] > 0) {
+                ctlbtn[i].fill('black')
+            } else {
+                ctlbtn[i].fill('white')
+            }
+            ctlbtn[i].on('click', function (e) {
+                e.target.fire('touchstart')
+            })
+            ctlbtn[i].on('touchstart', function (e) {
+                var zIndex = e.target.name().match(/\d+/)[0]
+                text7Debugger.text('you clicked on ' + e.target.name() + ' ' + zIndex);
+                ctlselect[0] = 0;
+                ctlselect[1] = 0;
+                ctlselect[2] = 0;
+                ctlselect[zIndex] = 1;
+                for (var k = 0; k < 3; k++) {
+                    if (ctlselect[k] > 0) {
+                        ctlbtn[k].fill('black')
+                    } else {
+                        ctlbtn[k].fill('white')
+                    }
+                }
+                textStep3.text('')
+                if (ctlselect[0]) {
+                    balancepoint.fill('orange')
+                    balancepoint.stroke('orange')
+                    balancepoint.show()
+                    balancepoint.draggable(true)
+                    balancepoint.x((325 + 600) / 2)
+                    balancepoint.y(375)
+                    greenLine3.points([325, 350, 600, 350])
+                    greenLinebar.hide()
+                    greenLinebar2.hide()
+                    for (s = 1; s <= 10; s++) {
+                        greenLine22[s].hide()
+                    }
+                    textStep3.text('Step 3: Move Balance Point: ')
+                    stage.fire('dragmove')
+
+                } else if (ctlselect[1]) {
+                    balancepoint.show()
+                    balancepoint.draggable(false)
+                    balancepoint.x((325 + 600) / 2)
+                    balancepoint.y(375)
+                    greenLine3.points([325, 325, 425, 325, 375, 325, 325 + 60, 350, 600 - 60, 350, 550, 325, 500, 325, 600, 325])
+                    greenLinebar.hide()
+                    greenLinebar2.show()
+                    balancepoint.fill('green')
+                    balancepoint.stroke('green')
+                    textStep3.text('Step 3: Move the bar to divide')
+                    stage.fire('dragmove')
+
+                } else if (ctlselect[2]) {
+                    balancepoint.hide()
+                    balancepoint.draggable(false)
+                    balancepoint.x((325 + 600) / 2)
+                    balancepoint.y(375)
+                    greenLine3.points([325, 350 + 50, 600, 350 + 50])
+                    greenLinebar.show()
+                    greenLinebar2.hide()
+                    for (s = 1; s <= 10; s++) {
+                        greenLine22[s].hide()
+                    }
+                    balancepoint.fill('green')
+                    balancepoint.stroke('green')
+                    textStep3.text('Step 3: Drag down the bar to check the highest frequency. ')
+                    stage.fire('dragmove')
+                }
+                layer.draw();
+            });
+            layer.add(ctlbtn[i]);
+            ctltxt[i] = new Konva.Text({
+                x: 349 + 100 * i + 14,
+                y: 101 - 4 - 50,
+                fill: 'black',
+                name: 'ctrl ' + i,
+                text: ['Find Mean', 'Find Median', 'Find Mode'][i]
+            })
+            ctltxt[i].on('touchstart', function (e) {
+                var zIndex = (e.target.name() + '  0').match(/\d+/)[0]
+                ctlbtn[zIndex].fire('touchstart')
+            })
+            ctltxt[i].on('click', function (e) {
+                var zIndex = (e.target.name() + '  0').match(/\d+/)[0]
+                ctlbtn[zIndex].fire('touchstart')
+            })
+            layer.add(ctltxt[i]);
+        }
+        var star = new Array();
+        var star0 = new Array();
+        var star0text = new Array();
+        for (var i = 0; i < 10; i++) {
+            star0text[i] = new Konva.Text({
+                x: stage.width() * (Math.random() * 0.6 + 0.2) * 0 + i * 25 + 50,
+                y: stage.height() * (Math.random() * 0.6 + 0.2) * 0 + 80 - 50,
+                fill: 'black',
+                text: '#' + i,
+                visible: false,
+            })
+            star0[i] = new Konva.Circle({
+                x: stage.width() * (Math.random() * 0.6 + 0.2) * 0 + i * 25 + 50,
+                y: stage.height() * (Math.random() * 0.6 + 0.2) * 0 + 80 - 50,
+                radius: 12,
+                fill: 'red',
+                stroke: 'black',
+                strokeWidth: 2,
+                name: 'star0 ' + i,
+                visible: false,
+            });
+            star[i] = new Konva.Circle({
+                x: stage.width() * (Math.random() * 0.6 + 0.2) * 0 + i * 25 + 50,
+                y: stage.height() * (Math.random() * 0.6 + 0.2) * 0 + 80 + 50,
+                radius: 12,
+                fill: 'red',
+                stroke: 'black',
+                strokeWidth: 2,
+                draggable: true,
+                name: 'star ' + i,
+                dragBoundFunc: function (pos) {
+                    var newX = pos.x < 50 ? 50 : pos.x;
+                    var newY = pos.y < 50 ? 50 : pos.y;
+                    newX = newX > (stage.width() - 50) ? (stage.width() - 50) : newX;
+                    newY = newY > (stage.height() - 50) ? (stage.height() - 50) : newY;
+                    newX = newX > 310 ? 310 : newX;
+                    if (inRange(newY, 98 + 50, 398)) {
+                        for (var j = 1; j <= 10; j++) {
+                            if (inRange(newX, j * 25 + 25 - 12.5, j * 25 + 25 + 12.5)) {
+                                newX = j * 25 + 50 - 25;
+                                for (var k = 1; k <= 10; k++) {
+
+                                }
+                            }
+                        }
+                    }
+                    return {
+                        x: newX,
+                        y: newY,
+                    };
+                },
+            });
+            layer.add(star[i]);
+            layer.add(star0[i]);
+            layer.add(star0text[i]);
+        }
+        layer.draw();
+
+        function removeElementsWithValue(arr, val) {
+            var i = arr.length;
+            while (i--) {
+                if (arr[i] === val) {
+                    arr.splice(i, 1);
+                }
+            }
+            return arr;
+        }
+
+
+
+        function checkeverybody(e) {
+            var zIndex = (e.target.name() + '  0').match(/\d+/)[0]
+            var bucket = [];
+            for (var n = 0; n < 11; n++) {
+                bucket[n] = 0;
+            }
+            for (var i = 0; i < 10; i++) {
+                newX = star[i].x()
+                newY = star[i].y()
+
+                var jj = 0;
+                if (inRange(newY, 98 + 50, 398)) {
+
+                    for (var j = 1; j <= 10; j++) {
+
+                        if (inRange(newX, j * 25 + 25 - 12.5, j * 25 + 25 + 12.5)) {
+                            jj = j;
+
+                        }
+                    }
+
+                }
+                if (jj > 0) {
+                    star[i].y(398 - 12.5 - 25 * bucket[jj])
+                    bucket[jj] = bucket[jj] + 1;
+                }
+                recorder[i] = jj;
+
+            }
+            recorder23 = recorder.slice()
+            recorder23 = recorder23.sort(function (a, b) {
+                return a - b
+            });
+            removeElementsWithValue(recorder23, 0)
+            for (var n = 0; n < 11; n++) {
+                bucket[n] = 0;
+            }
+
+            if (ctlselect[0]) {
+                var implied_location = (balancepoint.x() - 325) / 25.0
+                followmeter.x(454 - 5.5 * 25 + implied_location * 25)
+                followmeter.y(375)
+                followmeter.text(implied_location)
+                if ((recorder23.length < 1)) {
+                    for (var l = 0; l < 10; l++) {
+                        star0[l].x(stage.width() * (Math.random() * 0.6 + 0.2) * 0 + l * 25 + 50)
+                        star0[l].y(stage.height() * (Math.random() * 0.6 + 0.2) * 0 + 80 - 50)
+                        star0[l].hide()
+                        star0text[l].hide()
+                    }
+                    if (showselect2) { text3EQ.text("Mean Calculation: Not Available") } else { text3EQ.text('') }
+                    greenLine3.points([325, 350, 600, 350])
+                } else {
+                    var eqstring = '(' + recorder23.toString().split(',').join('+') + ')' + '/' + recorder23.length + '=' + mean(recorder23)
+                    for (var l = 0; l < 10; l++) {
+                        if (recorder[l] > 0) {
+
+
+
+
+                            if ((Math.abs(mean(recorder23) - implied_location) < 0.05)) {
+                                followmeter.text(implied_location + ' \n\n Balanced')
+                                star0[l].x(325 + recorder[l] * 25)
+                                star0[l].y(350 - bucket[recorder[l]] * 25 - 12.5)
+                                greenLine3.points([325, 350, 600, 350])
+                                //textStep3.text('Step 3: Balance Point: ' + implied_location + '      Balanced')
+                            } else if (mean(recorder23) - implied_location < 0) {
+                                followmeter.text(implied_location + ' \n\n Not Balanced')
+                                var offset = recorder[l] / implied_location - 1
+                                star0[l].x(325 + recorder[l] * 25)
+                                star0[l].y(350 - bucket[recorder[l]] * 25 - 12.5 - offset * 25)
+                                greenLine3.points([325, 375, 600, 350 - (11 / implied_location - 1) * 25])
+                                //textStep3.text('Step 3: Move Balance Point: ' + implied_location + '      Not Balanced')
+                            } else {
+                                followmeter.text(implied_location + ' \n\n Not Balanced')
+                                var offset = (11 - recorder[l]) / (11 - implied_location) - 1
+                                star0[l].x(325 + recorder[l] * 25)
+                                star0[l].y(350 - bucket[recorder[l]] * 25 - 12.5 - offset * 25)
+                                greenLine3.points([325, 350 - (11 / (11 - implied_location) - 1) * 25, 600, 375])
+                                //textStep3.text('Step 3: Move Balance Point: ' + implied_location + '      Not Balanced')
+                            }
+                            star0text[l].x(star0[l].x() - 5)
+                            star0text[l].y(star0[l].y() - 5)
+                            star0text[l].text(recorder[l])
+                            star0text[l].show()
+                            if (showselect2) { text3EQ.text("Mean Calculation : E(x)=" + eqstring) } else { text3EQ.text('') }
+                            bucket[recorder[l]] = bucket[recorder[l]] + 1;
+                            star0[l].show()
+                        } else {
+                            star0[l].x(stage.width() * (Math.random() * 0.6 + 0.2) * 0 + l * 25 + 50)
+                            star0[l].y(stage.height() * (Math.random() * 0.6 + 0.2) * 0 + 80 - 50)
+                            star0[l].hide()
+                            star0text[l].hide()
+                        }
+                    }
+                }
+                //balancepoint.fire('dragmove');
+                text7Debugger.text(recorder + ' ' + e.target.name() + ' ' + zIndex);
+
+
+            } else if (ctlselect[1]) {
+                var greenLinebar2loc = roundup((greenLinebar2.x() / 25.0 - 1))
+                followmeter.x(350 + greenLinebar2loc * 25)
+                followmeter.y(440)
+                followmeter.text(' ')
+                if ((recorder23.length < 1)) {
+
+                    if (showselect2) { text3EQ.text("Mean Calculation : Not Available") } else { text3EQ.text('') }
+                } else {
+                    var d = new Array()
+                    for (l = 0; l < recorder23.length; l++) {
+                        if (Math.abs((greenLinebar2.x() / 25.0 - 1 - l)) <= 0.2) {
+                            d[0] = recorder23[l]
+                        } else if (Math.abs((greenLinebar2.x() / 25.0 - 1 - l)) < 0.8) {
+                            d.push(recorder23[l])
+                        } else {
+                        }
+                    }
+                    if (d.length < 1) {
+                        followmeter.text("^")
+                    } else if (d.length > 1) {
+                        var eqstring = '(' + d.toString().split(',').join('+') + ')' + '/' + d.length + '=' + mean(d)
+                        followmeter.text(eqstring)
+                    } else {
+                        followmeter.text(d)
+                    }
+                    for (l = 0; l < 10; l++) {
+                        if (l < recorder23.length) {
+                            greenLine22[l + 1].text(recorder23[l])
+                            greenLine22[l + 1].show()
+                        } else {
+                            greenLine22[l + 1].hide()
+                        }
+                    }
+                    var cnt = 0; var cntL = 0; var cntR = 0; var offset = 0;
+                    for (l = 0; l < 10; l++) {
+                        if (recorder[l] > 0) {
+                            if ((greenLinebar2.x() / 25.0 - 1) > cnt + 0.1) {
+                                cntL = cntL + 1;
+                            } else if ((greenLinebar2.x() / 25.0 - 1) < cnt - 0.1) {
+                                cntR = cntR + 1;
+                            } else {
+                            }
+                            cnt = cnt + 1;
+                        }
+                    }
+                    if (cntL > cntR) {
+                        greenLine3.points([325, 325 + 12.5, 425, 325 + 12.5, 375, 325 + 12.5, 325 + 60, 350 + 12.5, 600 - 60, 350 - 12.5, 550, 325 - 12.5, 500, 325 - 12.5, 600, 325 - 12.5])
+                        offset = -12.5
+                    } else if (cntL < cntR) {
+                        greenLine3.points([325, 325 - 12.5, 425, 325 - 12.5, 375, 325 - 12.5, 325 + 60, 350 - 12.5, 600 - 60, 350 + 12.5, 550, 325 + 12.5, 500, 325 + 12.5, 600, 325 + 12.5])
+                        offset = 12.5
+                    } else {
+                        greenLine3.points([325, 325, 425, 325, 375, 325, 325 + 60, 350, 600 - 60, 350, 550, 325, 500, 325, 600, 325])
+                        offset = 0
+                    }
+
+                    cnt = 0; cntL = 0; cntR = 0;
+                    for (l = 0; l < 10; l++) {
+                        if (recorder[l] > 0) {
+                            if ((greenLinebar2.x() / 25.0 - 1) > cnt + 0.1) {
+                                star0[l].x(375)
+                                star0[l].y(350 - cntL * 25 - 12.5 - 25 - offset); cntL = cntL + 1;
+
+                            } else if ((greenLinebar2.x() / 25.0 - 1) < cnt - 0.1) {
+                                star0[l].x(550)
+                                star0[l].y(350 - cntR * 25 - 12.5 - 25 + offset); cntR = cntR + 1;
+                            } else {
+                                star0[l].x((375 + 550) / 2)
+                                star0[l].y(350 - 0 * 25 - 12.5 - 25);
+                            }
+
+                            star0[l].show()
+                            star0text[l].x(star0[l].x() - 5)
+                            star0text[l].y(star0[l].y() - 5)
+                            star0text[l].text(recorder23[cnt])
+                            star0text[l].show()
+                            bucket[recorder[l]] = bucket[recorder[l]] + 1;
+                            cnt = cnt + 1;
+                        } else {
+                            star0text[l].hide()
+                            star0[l].hide()
+                        }
+                    }
+                    if (showselect2) { text3EQ.text("Median Calculation : " + median(recorder23)) } else { text3EQ.text('') }
+                }
+            } else if (ctlselect[2]) {
+                followmeter.x(325)
+                followmeter.y(greenLinebar.y() + 150)
+                followmeter.text(roundup(10 - greenLinebar.y() / 25))
+                if ((recorder23.length < 1)) {
+                    if (showselect2) { text3EQ.text("Mode Calculation : Not Available") } else { text3EQ.text('') }
+                } else {
+                    for (l = 0; l < 10; l++) {
+                        if (recorder[l] > 0) {
+                            star0[l].x(325 + recorder[l] * 25)
+                            star0[l].y(350 - bucket[recorder[l]] * 25 - 12.5 - 0 * 25 + 50)
+                            star0[l].show()
+                            star0text[l].x(star0[l].x() - 5)
+                            star0text[l].y(star0[l].y() - 5)
+                            star0text[l].text(recorder[l])
+                            star0text[l].show()
+                            bucket[recorder[l]] = bucket[recorder[l]] + 1;
+                        } else {
+                            star0[l].hide()
+                            star0text[l].hide()
+                        }
+                    }
+                    if (showselect2) { text3EQ.text("Mode Calculation : " + mode(recorder23)) } else { text3EQ.text('') }
+                }
+            }
+            if (recorder23.length < 1) {
+                textAnswer.text('Array : \n\n')
+                if (showselect) {
+                    textAnswer2.text('Mean :  \nMedian:  \nMode : \n')
+                }
+                else {
+                    textAnswer2.text('')
+                }
+            } else {
+                textAnswer.text('Array : ' + recorder23)
+                if (showselect) {
+                    textAnswer2.text('Mean: ' + mean(recorder23) + '\nMedian: ' + median(recorder23) + ' \nMode: ' + mode(recorder23))
+                }
+                else {
+                    textAnswer2.text('')
+                }
+            }
+            layer.draw();
+        }
+
+        stage.on('dragstart', function (e) {
+            e.target.moveTo(tempLayer);
+            text.text('Moving ' + e.target.name() + ' ' + e.target.x() + ' ' + e.target.y());
+            layer.draw();
+        });
+
+        var previousShape;
+        stage.on('dragmove', function (evt) {
+            checkeverybody(evt);
+            var pos = stage.getPointerPosition();
+            var shape = layer.getIntersection(pos);
+            if (previousShape && shape) {
+                if (previousShape !== shape) {
+                    // leave from old targer
+                    previousShape.fire(
+                        'dragleave', {
+                        type: 'dragleave',
+                        target: previousShape,
+                        evt: evt.evt,
+                    },
+                        true
+                    );
+
+                    // enter new targer
+                    shape.fire(
+                        'dragenter', {
+                        type: 'dragenter',
+                        target: shape,
+                        evt: evt.evt,
+                    },
+                        true
+                    );
+                    previousShape = shape;
+                } else {
+                    previousShape.fire(
+                        'dragover', {
+                        type: 'dragover',
+                        target: previousShape,
+                        evt: evt.evt,
+                    },
+                        true
+                    );
+                }
+            } else if (!previousShape && shape) {
+                previousShape = shape;
+                shape.fire(
+                    'dragenter', {
+                    type: 'dragenter',
+                    target: shape,
+                    evt: evt.evt,
+                },
+                    true
+                );
+            } else if (previousShape && !shape) {
+                previousShape.fire(
+                    'dragleave', {
+                    type: 'dragleave',
+                    target: previousShape,
+                    evt: evt.evt,
+                },
+                    true
+                );
+                previousShape = undefined;
+            }
+        });
+        stage.on('dragend', function (e) {
+            var pos = stage.getPointerPosition();
+            var shape = layer.getIntersection(pos);
+            if (shape) {
+                previousShape.fire(
+                    'drop', {
+                    type: 'drop',
+                    target: previousShape,
+                    evt: e.evt,
+                },
+                    true
+                );
+            }
+            previousShape = undefined;
+            e.target.moveTo(layer);
+            layer.draw();
+            tempLayer.draw();
+        });
+
+        stage.on('dragenter', function (e) {
+            //e.target.fill('orange');
+            text.text('dragenter ' + e.target.name() + ' ' + e.target.x() + ' ' + e.target.y() + ' ');
+            layer.draw();
+        });
+
+        stage.on('dragleave', function (e) {
+            //e.target.fill('pink');
+            text.text('dragleave ' + e.target.name() + ' ' + e.target.x() + ' ' + e.target.y() + ' ');
+            layer.draw();
+        });
+
+        stage.on('dragover', function (e) {
+            text.text('dragover ' + e.target.name() + ' ' + e.target.x() + ' ' + e.target.y() + ' ');
+            layer.draw();
+        });
+
+        stage.on('drop', function (e) {
+            //e.target.fill('red');
+            text.text('drop ' + e.target.name() + ' ' + e.target.x() + ' ' + e.target.y() + ' ');
+            layer.draw();
+        });
+    </script>
+</body>
+
+</html>
