@@ -49,7 +49,7 @@ $cards        = get_field('cards');
             <?php foreach ($cards as $card) : ?>
                 <article class="members w-full md:w-[49%] lg:w-[32.5%]">
                     <figure>
-                        <img class="w-full" src="<?php echo $card['image']; ?>" alt="team">
+                        <img class="w-full aspect-square" src="<?php echo $card['image']; ?>" alt="team">
                     </figure>
                     <h3 class="mt-3"><?php echo $card["name"] ?></h3>
                     <p class="mb-5"><?php echo wp_trim_words($card["text"], 25) ?> </p>
