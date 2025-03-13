@@ -62,7 +62,7 @@ $cta         = get_field('cta');
                             <a target="<?php echo $card["cta"]["target"] ?>" href="<?php echo $card["cta"]["url"]  ?>"
                                 class="flex justify-center">
                                 <img class="max-[1024px]:w-6" decoding="async"
-                                    src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/themes/IDS-theme/assets/images/arrow-blue.svg"
+                                    src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/arrow-blue.svg"
                                     style="filter: brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(564%) hue-rotate(176deg) brightness(111%) contrast(100%);">
                             </a>
                         <?php endif ?>
@@ -85,7 +85,7 @@ $cta         = get_field('cta');
                             <a target="<?php echo $card["cta"]["target"] ?>" href="<?php echo $card["cta"]["url"]  ?>"
                                 class="flex justify-center">
                                 <img class="max-[1024px]:w-6" decoding="async"
-                                    src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/themes/IDS-theme/assets/images/arrow-blue.svg"
+                                    src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/arrow-blue.svg"
                                     style="filter: brightness(0) saturate(100%) invert(100%) sepia(6%) saturate(564%) hue-rotate(176deg) brightness(111%) contrast(100%);">
                             </a>
                         <?php endif ?>

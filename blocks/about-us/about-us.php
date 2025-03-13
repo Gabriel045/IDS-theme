@@ -75,12 +75,11 @@ $cards_2  = get_field('cards_2');
     </div>
     <figure class="absolute bottom-[20px] left-0 hidden lg:block">
         <img class="rotate-180" decoding="async"
-            src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/themes/IDS-theme/assets/images/Group-465.svg">
+            src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
     </figure>
     <figure class="absolute top-0 right-0 hidden lg:block"
         style="filter: brightness(0) saturate(100%) invert(82%) sepia(67%) saturate(4960%) hue-rotate(348deg) brightness(97%) contrast(84%);">
-        <img decoding="async"
-            src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/themes/IDS-theme/assets/images/Group-465.svg">
+        <img decoding="async" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group-465.svg">
     </figure>
 </section>
 

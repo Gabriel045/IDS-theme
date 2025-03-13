@@ -52,7 +52,7 @@ $cards = $cards->posts;
 
 <section class="">
     <div class="block_content">
-        <div class="flex flex-wrap md:flex-nowrap gap-[4%] gap-y-[60px]">
+        <div class="flex md:flex-wrap flex-nowrap gap-[4%] gap-y-[60px]">
             <?php foreach ($cards as $key => $card) :
                 $date = $card->post_date;
                 $newDate = date("F Y", strtotime($date));

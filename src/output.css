@@ -985,6 +985,10 @@ video {
   height: 100%;
 }
 
+.min-h-\[100vh\] {
+  min-height: 100vh;
+}
+
 .\!w-\[100px\] {
   width: 100px !important;
 }
@@ -1146,6 +1150,10 @@ video {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
 }
 
 .items-end {
@@ -1404,6 +1412,11 @@ video {
 .px-\[18px\] {
   padding-left: 18px;
   padding-right: 18px;
+}
+
+.px-\[20px\] {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .px-\[30px\] {
@@ -1972,7 +1985,7 @@ p a,
   z-index: 999999;
   opacity: 1;
   visibility: visible;
-  transition: all .3sease;
+  transition: all .3s ease;
 }
 
 #menu-header-menu a,
@@ -1990,6 +2003,62 @@ p a,
   margin-bottom: 20px;
 }
 
+#menu-header-menu-1 {
+  position: relative;
+  z-index: 999;
+}
+
+#menu-header-menu-1>.menu-item-has-children {
+  position: relative;
+}
+
+#menu-header-menu-1>.menu-item-has-children .submenu-toggle {
+  display: flex;
+  justify-content: end;
+  top: 0px;
+  right: 0;
+  width: 50%;
+  position: absolute;
+  height: 25px;
+}
+
+#menu-header-menu-1>.menu-item-has-children .submenu-toggle::after {
+  content: "\203A";
+  font-size: 35px;
+  font-family: math;
+  transform: rotate(90deg);
+  margin-top: 0px;
+  margin-right: 0px;
+  transition: all .3s ease;
+}
+
+#menu-header-menu-1>.menu-item-has-children.active .submenu-toggle::after {
+  content: "\203A";
+  font-size: 35px;
+  font-family: math;
+  transform: rotate(0deg);
+  margin-top: -12px;
+  margin-right: 12px;
+  transition: all .3s ease;
+}
+
+#menu-header-menu-1>.menu-item-has-children>.sub-menu {
+  opacity: 0;
+  padding: 0px;
+  max-height: 0px;
+  visibility: hidden;
+  transition: all .3s ease;
+}
+
+#menu-header-menu-1>.menu-item-has-children.active>.sub-menu {
+  z-index: 999999;
+  padding: 10px;
+  opacity: 1;
+  max-height: 500px;
+  visibility: visible;
+  transition: all .3s ease;
+}
+
 #menu-header-menu-1 li a {
   color: var(--Dark);
   font-size: 20px;
@@ -2000,7 +2069,7 @@ p a,
 }
 
 #menu-header-menu-1 li {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .blur-circle {
@@ -2517,6 +2586,10 @@ details[open]>summary:after {
 
   .md\:w-\[90\%\] {
     width: 90%;
+  }
+
+  .md\:flex-wrap {
+    flex-wrap: wrap;
   }
 
   .md\:flex-nowrap {

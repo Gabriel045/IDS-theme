@@ -49,16 +49,6 @@
             <div class="w-full lg:w-2/5 text-center lg:text-start">
                 <span class="text-base font-[500] text-GrayText">© 2025 IDS. All rights reserved.</span>
             </div>
-            <!-- <figure class="w-full lg:w-auto">
-                <img class="w-[300px] max-[1023px]:m-auto"
-                    src="https://wordpress-755960-5157946.cloudwaysapps.com/wp-content/uploads/2025/01/27c2322272737dc2e845c01797c05e33-1.webp"
-                    alt="">
-            </figure>
-            <div class="flex gap-2 max-[1023px]:w-full max-[1023px]:justify-center">
-                <a class="text-base font-[500] text-GrayText" href="#">Terms</a>
-                <a class="text-base font-[500] text-GrayText" href="#">Privacy</a>
-                <a class="text-base font-[500] text-GrayText" href="#">Disclosures</a>
-            </div> -->
         </div>
     </div>
 </footer>

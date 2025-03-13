@@ -23,13 +23,14 @@
                         </a>
                     </figure>
                 </div>
-                <div id="menu-dektop" class="lg:w-4/5 w-[40%] flex justify-end items-center gap-[12px] xl:gap-[25px]">
+                <div id="menu-dektop"
+                    class="z-[99] lg:w-4/5 w-[40%] flex justify-end items-center gap-[12px] xl:gap-[25px]">
                     <?php echo  wp_nav_menu(array(
                         'menu'   => 'Header Menu',
                     ));  ?>
                     <div class="hidden lg:block">
                         <form class="relative" role="search" method="get" id="searchform" class="searchform"
-                            action="https://wordpress-755960-5157946.cloudwaysapps.com/">
+                            action="https://www.thinkdataed.org/">
                             <div class="flex justify-end">
                                 <input type="text" placeholder="Search" name="s" id="s">
                                 <button class="right-[6px] absolute top-[6px]" type="submit" id="searchsubmit"
@@ -48,20 +49,21 @@
                         </span>
                         <a href="/contact/" class="btn-orange !hidden lg:!flex">Contact Us</a>
                     </div>
-                </div>            </div>
+                </div>
+            </div>
         </div>
         <!-- mobile -->
         <div id="menu-mobile" class="menu-mobile-container lg:hidden overflow-y-auto overflow-x-hidden">
-            <div class="flex flex-col justify-between px-[40px] py-[60px] h-full">
+            <div class="flex flex-col px-[20px] py-[60px] h-full min-h-[100vh] relative z-[999] gap-y-24">
                 <div class="">
                     <?php echo  wp_nav_menu(array(
                         'menu'   => 'Header menu',
                     ));  ?>
 
                 </div>
-                <div class="pb-[30px]">
-                     <form class="relative w-full" role="search" method="get" id="searchform"
-                        action="https://wordpress-755960-5157946.cloudwaysapps.com/">
+                <div class="">
+                    <form class="relative w-full pb-[30px]" role="search" method="get" id="searchform"
+                        action="https://www.thinkdataed.org/">
                         <div>
                             <input class="w-full" type="text" placeholder="Search" name="s" id="s">
                             <button class="right-[6px] absolute top-[6px]" type="submit" id="searchsubmit" value=""><img
@@ -69,9 +71,9 @@
                                     src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/search.png"></button>
                         </div>
                     </form>
-                </div>
-                <div class="flex justify-center">
-                    <a href="#" class="btn-orange flex">Contact Us</a>
+                    <div class="flex justify-center">
+                        <a href="#" class="btn-orange flex">Contact Us</a>
+                    </div>
                 </div>
             </div>
             <span class="blur-circle absolute top-0 right-0 !w-[150px] !h-[60vh]"></span>
@@ -80,11 +82,26 @@
     </header>
 
     <script>
-    window.addEventListener("load", (event) => {
-        const navIcon = document.querySelector("#nav-icon4")
-        navIcon.addEventListener("click", () => {
-            navIcon.classList.toggle("open");
-            document.querySelector("#menu-mobile").classList.toggle("active");
+        window.addEventListener("load", (event) => {
+            const navIcon = document.querySelector("#nav-icon4")
+            navIcon.addEventListener("click", () => {
+                navIcon.classList.toggle("open");
+                document.querySelector("#menu-mobile").classList.toggle("active");
+            });
+
+            const mobileItems = document.querySelectorAll("#menu-header-menu-1 .menu-item-has-children");
+            mobileItems.forEach(item => {
+                const span = document.createElement('span');
+                span.classList.add('submenu-toggle');
+                item.appendChild(span);
+            });
+
+
+            const click = document.querySelectorAll("#menu-header-menu-1 .menu-item-has-children .submenu-toggle");
+            click.forEach(item => {
+                item.addEventListener("click", () => {
+                    item.parentElement.classList.toggle("active");
+                });
+            });
         });
-    });
     </script>
